@@ -49,7 +49,7 @@ public class ControladorLogin {
 		
 		
 		//Almacenamos el archivo de audio en una variable File
-		File archivoAudio = new File("/assets/audios/audioLogin.wav");
+		File archivoAudio = new File("src/main/java/assets/audios/audioLogin.wav");
 		
 		try {
 			//Almacenamos el audio en un objeto AudioInputStream
