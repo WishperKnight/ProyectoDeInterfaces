@@ -2,7 +2,7 @@ package org.example.src.main;
 
 import java.awt.EventQueue;
 
-import vistas.VistaInicio;
+import org.example.src.vista.VistaInicio;
 
 
 public class App {

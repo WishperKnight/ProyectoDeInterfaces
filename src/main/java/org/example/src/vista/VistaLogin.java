@@ -6,19 +6,22 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controlador.ControladorLogin;
-import utiles.Utiles;
+import org.example.src.controlador.ControladorLogin;
+import org.example.src.utiles.Utiles;
 
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
+
 import java.awt.Font;
 import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.SystemColor;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -33,6 +36,8 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
 
 public class VistaLogin extends JFrame {
 
@@ -47,7 +52,7 @@ public class VistaLogin extends JFrame {
 	 */
 	public VistaLogin() {
 		setTitle("Iniciar sesion");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaLogin.class.getResource("/imagenes/logoMercadona.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaLogin.class.getResource("/assets/imagenes/logoMercadona.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 339, 366);
@@ -90,12 +95,12 @@ public class VistaLogin extends JFrame {
 		JLabel lbTitulo = new JLabel("Sign in");
 		lbTitulo.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		lbTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
-		lbTitulo.setBounds(122, 11, 80, 40);
+		lbTitulo.setBounds(122, 22, 80, 40);
 		contentPane.add(lbTitulo);
 		
 		//Boton iniciar sesion
 		JButton btnIniciarSesion = new JButton("");
-		btnIniciarSesion.setIcon(new ImageIcon(VistaLogin.class.getResource("/imagenes/iniciarSesionImagenBoton.png")));
+		btnIniciarSesion.setIcon(new ImageIcon(VistaLogin.class.getResource("/assets/imagenes/iniciarSesionImagenBoton.png")));
 		btnIniciarSesion.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
 		btnIniciarSesion.setForeground(new Color(255, 255, 255));
 		btnIniciarSesion.addActionListener(new ActionListener() {
@@ -113,7 +118,7 @@ public class VistaLogin extends JFrame {
 		//Boton para reproducir el audio de ayuda
 		JButton btnAudio = new JButton("");
 		btnAudio.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
-		btnAudio.setIcon(new ImageIcon(VistaLogin.class.getResource("/imagenes/IconoBotonAudio.png")));
+		btnAudio.setIcon(new ImageIcon(VistaLogin.class.getResource("/assets/imagenes/IconoBotonAudio.png")));
 		btnAudio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -122,7 +127,7 @@ public class VistaLogin extends JFrame {
 				
 			}
 		});
-		btnAudio.setBounds(271, 23, 42, 32);
+		btnAudio.setBounds(271, 34, 42, 32);
 		contentPane.add(btnAudio);
 		
 		
@@ -183,9 +188,9 @@ public class VistaLogin extends JFrame {
 				
 			}
 		});
-		btnAtras.setIcon(new ImageIcon(VistaLogin.class.getResource("/imagenes/IconoBotonAtras.png")));
+		btnAtras.setIcon(new ImageIcon(VistaLogin.class.getResource("/assets/imagenes/IconoBotonAtras.png")));
 		btnAtras.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
-		btnAtras.setBounds(10, 23, 42, 32);
+		btnAtras.setBounds(10, 34, 42, 32);
 		
 		contentPane.add(btnAtras);
 		
@@ -195,6 +200,69 @@ public class VistaLogin extends JFrame {
 		Utiles.toolTip(pfContrasenia, "Inserta la contraseña");
 		Utiles.toolTip(btnAudio, "Reproducir audio que explica el funcionamiento de esta ventana");
 		Utiles.toolTip(btnAtras, "Volver a la anterior ventana");
+		
+		//MenuBar para el menu general
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 323, 22);
+		menuBar.setBackground(Utiles.convertirColorJava(Utiles.COLOR_AZUL));
+		contentPane.add(menuBar);
+		
+		//JMenu menuVolver que contendra el JMenuItem menuItemVolver
+		JMenu menuVolver = new JMenu("Volver");
+		menuVolver.setBackground(Utiles.convertirColorJava(Utiles.COLOR_AZUL));
+		menuVolver.setForeground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
+		menuBar.add(menuVolver);
+		
+		//JMenuItem menuItemVolver con el que volveremos a la anterior ventana
+		JMenuItem menuItemVolver = new JMenuItem("Volver a la anterior ventana");
+		menuItemVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//Llamamos al metodo volverAtras
+				volverAtras();
+				
+			}
+		});
+		menuItemVolver.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
+		menuItemVolver.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
+		menuVolver.add(menuItemVolver);
+		
+		//JMenu menuSesion que contendra el JMenuItem menuItemSesionIniciar
+		JMenu menuSesion = new JMenu("Sesion");
+		menuSesion.setBackground(Utiles.convertirColorJava(Utiles.COLOR_AZUL));
+		menuSesion.setForeground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
+		menuBar.add(menuSesion);
+		
+		//JMenuItem menuItemVolver con el que iniciaremos sesion con los datos introducidos
+		JMenuItem menuItemSesionIniciar = new JMenuItem("Iniciar sesion");
+		menuItemSesionIniciar.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
+		menuItemSesionIniciar.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
+		menuSesion.add(menuItemSesionIniciar);
+		
+		//JMenu menuAudio que contendra el JMenuItem menuItemAudioReproducir
+		JMenu menuAudio = new JMenu("Audio");
+		menuAudio.setBackground(Utiles.convertirColorJava(Utiles.COLOR_AZUL));
+		menuAudio.setForeground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
+		menuBar.add(menuAudio);
+		
+		//JMenuItem menuItemAudioReproducir con el que reproduciremos el audio de ayuda
+		JMenuItem menuItemAudioReproducir = new JMenuItem("Reproducir audio de ayuda");
+		menuItemAudioReproducir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//Llamamos al metodo reproducirAudio
+				reproducirAudio();
+				
+			}
+		});
+		menuItemAudioReproducir.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
+		menuItemAudioReproducir.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
+		menuAudio.add(menuItemAudioReproducir);
+		
+		//Atajos de teclado
+		menuItemVolver.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.CTRL_MASK));
+		menuItemSesionIniciar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.CTRL_MASK));
+		menuItemAudioReproducir.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, ActionEvent.CTRL_MASK));
 		
 	}
 	
@@ -206,6 +274,7 @@ public class VistaLogin extends JFrame {
 	//Metodo para volver hacia atras
 	public void volverAtras() {
 		
+		//Llamamos al metodo volverAtras del controlador
 		controlador.volverAtras();
 		
 	}

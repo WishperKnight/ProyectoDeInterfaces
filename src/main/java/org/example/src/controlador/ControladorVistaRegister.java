@@ -1,8 +1,8 @@
 package org.example.src.controlador;
 
 
-import vistas.VistaInicio;
-import vistas.VistaRegister;
+import org.example.src.vista.VistaInicio;
+import org.example.src.vista.VistaRegister;
 
 public class ControladorVistaRegister {
 	

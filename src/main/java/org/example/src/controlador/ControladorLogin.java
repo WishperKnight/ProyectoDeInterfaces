@@ -7,10 +7,10 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 
-import vistas.VistaInicio;
-import vistas.VistaLogin;
+import org.example.src.vista.VistaInicio;
+import org.example.src.vista.VistaLogin;
 
-import utiles.Utiles;
+import org.example.src.utiles.Utiles;
 
 public class ControladorLogin {
 	
@@ -49,7 +49,7 @@ public class ControladorLogin {
 		
 		
 		//Almacenamos el archivo de audio en una variable File
-		File archivoAudio = new File("src/audio/audioLogin.wav");
+		File archivoAudio = new File("/assets/audios/audioLogin.wav");
 		
 		try {
 			//Almacenamos el audio en un objeto AudioInputStream

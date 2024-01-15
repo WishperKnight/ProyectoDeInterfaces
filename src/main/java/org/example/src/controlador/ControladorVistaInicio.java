@@ -1,8 +1,8 @@
 package org.example.src.controlador;
 
-import vistas.VistaInicio;
-import vistas.VistaLogin;
-import vistas.VistaRegister;
+import org.example.src.vista.VistaInicio;
+import org.example.src.vista.VistaLogin;
+import org.example.src.vista.VistaRegister;
 
 public class ControladorVistaInicio {
 
@@ -18,7 +18,7 @@ public class ControladorVistaInicio {
 	/**
 	 * 
 	 */
-	public void dirigirnosVentanaIniciarSesion(){
+	public void iniciarSesion(){
 		
 		VistaLogin login = new VistaLogin();
 		login.setLocationRelativeTo(null);
@@ -27,7 +27,7 @@ public class ControladorVistaInicio {
 		
 	}
 	
-	public void dirigirnosVentanaCrearCuenta(){
+	public void crearCuenta(){
 		
 		VistaRegister register = new VistaRegister();
 		register.setLocationRelativeTo(null);
