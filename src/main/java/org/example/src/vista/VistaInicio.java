@@ -39,7 +39,7 @@ public class VistaInicio extends JFrame {
 	public VistaInicio() {
 		setTitle("Ventana Inicio");
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaInicio.class.getResource("/assets/imagenes/logoMercadona.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaInicio.class.getResource("/imagenes/logoMercadona.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 617, 407);
 		contentPane = new JPanel();
@@ -51,7 +51,7 @@ public class VistaInicio extends JFrame {
 		
 		//Etiqueta que muestra una imagen con la marca de mercadona
 		JLabel lbImagen = new JLabel("");
-		lbImagen.setIcon(new ImageIcon(VistaInicio.class.getResource("/assets/imagenes/mercadona.png")));
+		lbImagen.setIcon(new ImageIcon(VistaInicio.class.getResource("/imagenes/mercadona.png")));
 		lbImagen.setBounds(85, 24, 418, 76);
 		contentPane.add(lbImagen);
 		
@@ -142,7 +142,7 @@ public class VistaInicio extends JFrame {
 		JTextArea textAreaTextoDescriptivo = new JTextArea();
 		textAreaTextoDescriptivo.setFont(new Font("Monospaced", Font.BOLD, 13));
 		textAreaTextoDescriptivo.setBackground(new Color(0, 153, 153));
-		textAreaTextoDescriptivo.setText("Bienvenidos a la aplicación oficial de mercadona, esta aplicacion ha sido diseñada para la venta de alimentos online de una forma facil y sencilla, puedes acceder a la ventana principal de dos formas, la forma principal es con una cuenta ya creada, aqui tendras todas las funcionalidades de la aplicacion y otra forma es con una cuenta de invitado, aqui tendras una funcionalidad mas limitada, tambien si no tienes cuenta puedes crear una e iniciar sesion con ella posteriormente");
+		textAreaTextoDescriptivo.setText("Bienvenidos a la aplicación oficial de Mercadona, esta aplicacion ha sido diseñada para la venta de alimentos online de una forma facil y sencilla, aquí puedes acceder a la ventana principal de dos formas diferentes, la forma principal es acceder con una cuenta ya creada, de esta forma tendras acceso a todas las funcionalidades de la aplicacion, la otra forma es con una cuenta de invitado, aqui tendras una funcionalidad mas limitada, tambien si no tienes cuenta puedes crear una e iniciar sesion con ella posteriormente");
 		textAreaTextoDescriptivo.setEditable(false);
 		textAreaTextoDescriptivo.setLineWrap(true);
 		textAreaTextoDescriptivo.setBackground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));

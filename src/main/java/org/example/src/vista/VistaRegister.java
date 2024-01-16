@@ -45,7 +45,7 @@ public class VistaRegister extends JFrame {
 	public VistaRegister() {
 		setResizable(false);
 		setTitle("Crear cuenta");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaRegister.class.getResource("/assets/imagenes/logoMercadona.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaRegister.class.getResource("/imagenes/logoMercadona.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 620, 324);
 		contentPane = new JPanel();
@@ -85,7 +85,7 @@ public class VistaRegister extends JFrame {
 		
 		//Boton btnCrearCuenta con el que crearemos la cuenta con los datos establecidos
 		JButton btnCrearCuenta = new JButton("");
-		btnCrearCuenta.setIcon(new ImageIcon(VistaRegister.class.getResource("/assets/imagenes/RegistrarseIcono.png")));
+		btnCrearCuenta.setIcon(new ImageIcon(VistaRegister.class.getResource("/imagenes/RegistrarseIcono.png")));
 		btnCrearCuenta.setBounds(269, 239, 62, 35);
 		btnCrearCuenta.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		btnCrearCuenta.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
@@ -101,7 +101,7 @@ public class VistaRegister extends JFrame {
 				
 			}
 		});
-		btnAtras.setIcon(new ImageIcon(VistaRegister.class.getResource("/assets/imagenes/IconoBotonAtras.png")));
+		btnAtras.setIcon(new ImageIcon(VistaLogin.class.getResource("/imagenes/IconoBotonAtras.png")));
 		btnAtras.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
 		btnAtras.setBounds(10, 35, 42, 32);
 		
@@ -201,6 +201,7 @@ public class VistaRegister extends JFrame {
 		tfNumeroTelefono.setBounds(82, 156, 134, 20);
 		contentPane.add(tfNumeroTelefono);
 		
+		//jlabel Sign up
 		JLabel lbTitulo = new JLabel("Sign up");
 		lbTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
 		lbTitulo.setBounds(259, 35, 85, 35);
@@ -220,20 +221,24 @@ public class VistaRegister extends JFrame {
 		tfDireccionEnvio.setBounds(460, 160, 134, 20);
 		contentPane.add(tfDireccionEnvio);
 		
+		//MenuBar para el menu general
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 604, 22);
 		menuBar.setBackground(Utiles.convertirColorJava(Utiles.COLOR_AZUL));
 		contentPane.add(menuBar);
 		
+		//JMenu menuVolver que contendra el JMenuItem menuItemVolver
 		JMenu menuVolver = new JMenu("Volver");
 		menuVolver.setBackground(Utiles.convertirColorJava(Utiles.COLOR_AZUL));
 		menuVolver.setForeground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
 		menuBar.add(menuVolver);
 		
+		//JMenuItem menuItemVolver con el que volveremos a la anterior ventana
 		JMenuItem menuItemVolver = new JMenuItem("Volver a la anterior ventana");
 		menuItemVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				//Llamamos al metodo volverAtras
 				volverAtras();
 				
 			}
@@ -242,21 +247,25 @@ public class VistaRegister extends JFrame {
 		menuItemVolver.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		menuVolver.add(menuItemVolver);
 		
+		//JMenu menuCuenta que contendra el JMenuItem menuItemCuentaEstablecer
 		JMenu menuCuenta = new JMenu("Cuenta");
 		menuCuenta.setBackground(Utiles.convertirColorJava(Utiles.COLOR_AZUL));
 		menuCuenta.setForeground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
 		menuBar.add(menuCuenta);
 		
+		//JMenuItem menuItemCuentaEstablecer con el que estableceremos la cuenta con los datos que he introducido
 		JMenuItem menuItemCuentaEstablecer = new JMenuItem("Establecer cuenta");
 		menuItemCuentaEstablecer.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
 		menuItemCuentaEstablecer.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		menuCuenta.add(menuItemCuentaEstablecer);
 		
+		//JMenu menuAudio que contendra el JMenuItem menuItemAudioReproducir
 		JMenu menuAudio = new JMenu("Audio");
 		menuAudio.setBackground(Utiles.convertirColorJava(Utiles.COLOR_AZUL));
 		menuAudio.setForeground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
 		menuBar.add(menuAudio);
 		
+		//JMenuItem menuItemAudioReproducir con el que podremos reproducir el audio de ayuda
 		JMenuItem menuItemAudioRproducir = new JMenuItem("Reproducir audio de ayuda");
 		menuItemAudioRproducir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -288,8 +297,10 @@ public class VistaRegister extends JFrame {
 		
 	}
 	
+	//Metodo para volver hacia atras
 	public void volverAtras() {
 		
+		//Llamamos al metodo volverAtras del controlador
 		controlador.volverAtras();
 		
 	}

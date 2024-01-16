@@ -34,6 +34,8 @@ public class ControladorLogin {
 	//Metodo para volver hacia atras
 	public void volverAtras() {
 		
+		//Aqui lo que hacemos es mostrar la ventana anterior a la de login (osea, mostramos la ventana de inicio) y 
+		//posteriormente cerramos la ventana actual en la que estamos
 		VistaInicio inicio = new VistaInicio();
 		inicio.setLocationRelativeTo(null);
 		login.dispose();
@@ -49,7 +51,7 @@ public class ControladorLogin {
 		
 		
 		//Almacenamos el archivo de audio en una variable File
-		File archivoAudio = new File("src/main/java/assets/audios/audioLogin.wav");
+		File archivoAudio = new File("src/audio/audioLogin.wav");
 		
 		try {
 			//Almacenamos el audio en un objeto AudioInputStream
