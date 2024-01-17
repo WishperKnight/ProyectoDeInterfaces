@@ -103,7 +103,7 @@ public class Vestibulo extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\yeray\\Downloads\\CarnePescado.png"));
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\yeray\\OneDrive\\Documentos\\GitHub\\ProyectoDeInterfaces\\src\\main\\java\\org\\example\\src\\imagenes\\CarnePescado.png"));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 33));
 		lblNewLabel_1.setBounds(39, 39, 162, 184);
 		contentPane.add(lblNewLabel_1);
