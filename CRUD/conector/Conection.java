@@ -13,7 +13,7 @@ public abstract class Conection {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
 		String schema = "Mercadona";
-		String url = "jdbc:mysql://localhost:3307/" + schema;
+		String url = "jdbc:mysql://localhost/" + schema;
 		String user = "root";
 		String pass = "root";
 		connect = DriverManager.getConnection(url, user, pass);
