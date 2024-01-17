@@ -52,7 +52,7 @@ public class VistaLogin extends JFrame {
 	 */
 	public VistaLogin() {
 		setTitle("Iniciar sesion");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaLogin.class.getResource("/imagenes/logoMercadona.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaLogin.class.getResource("/assets/imagenes/logoMercadona.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 339, 366);
@@ -100,7 +100,7 @@ public class VistaLogin extends JFrame {
 		
 		//Boton iniciar sesion
 		JButton btnIniciarSesion = new JButton("");
-		btnIniciarSesion.setIcon(new ImageIcon(VistaLogin.class.getResource("/imagenes/iniciarSesionImagenBoton.png")));
+		btnIniciarSesion.setIcon(new ImageIcon(VistaLogin.class.getResource("/assets/imagenes/iniciarSesionImagenBoton.png")));
 		btnIniciarSesion.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
 		btnIniciarSesion.setForeground(new Color(255, 255, 255));
 		btnIniciarSesion.addActionListener(new ActionListener() {
@@ -118,7 +118,7 @@ public class VistaLogin extends JFrame {
 		//Boton para reproducir el audio de ayuda
 		JButton btnAudio = new JButton("");
 		btnAudio.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
-		btnAudio.setIcon(new ImageIcon(VistaLogin.class.getResource("/imagenes/IconoBotonAudio.png")));
+		btnAudio.setIcon(new ImageIcon(VistaLogin.class.getResource("/assets/imagenes/IconoBotonAudio.png")));
 		btnAudio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -193,7 +193,7 @@ public class VistaLogin extends JFrame {
 				
 			}
 		});
-		btnAtras.setIcon(new ImageIcon(VistaLogin.class.getResource("/imagenes/IconoBotonAtras.png")));
+		btnAtras.setIcon(new ImageIcon(VistaLogin.class.getResource("/assets/imagenes/IconoBotonAtras.png")));
 		btnAtras.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
 		btnAtras.setBounds(10, 34, 42, 32);
 		

@@ -1,7 +1,10 @@
+
 package org.example.src.main;
 
 import java.awt.EventQueue;
 
+import org.example.src.controlador.ControladorLogin;
+import org.example.src.controlador.ControladorVistaRegister;
 import org.example.src.vista.VistaInicio;
 
 
@@ -25,6 +28,9 @@ public class App {
 						}
 					}
 				});
+		ControladorVistaRegister cl = new ControladorVistaRegister(null);
+		
+		
 
 	}
 

@@ -45,7 +45,7 @@ public class VistaRegister extends JFrame {
 	public VistaRegister() {
 		setResizable(false);
 		setTitle("Crear cuenta");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaRegister.class.getResource("/imagenes/logoMercadona.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaRegister.class.getResource("/assets/imagenes/logoMercadona.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 620, 324);
 		contentPane = new JPanel();
@@ -56,28 +56,28 @@ public class VistaRegister extends JFrame {
 		contentPane.setLayout(null);
 		
 		//jlabel lbNombre para el textfield tfNombre
-		JLabel lbNombre = new JLabel("Nombre:");
+		JLabel lbNombre = new JLabel("Nombre: *");
 		lbNombre.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lbNombre.setBounds(10, 81, 55, 14);
+		lbNombre.setBounds(10, 81, 62, 14);
 		lbNombre.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		contentPane.add(lbNombre);
 		
 		//jlabel lbCorreos para el textfield tfCorreo
-		JLabel lbCorreos = new JLabel("Correo:");
+		JLabel lbCorreos = new JLabel("Correo: *");
 		lbCorreos.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lbCorreos.setBounds(10, 196, 48, 14);
+		lbCorreos.setBounds(10, 196, 62, 14);
 		lbCorreos.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		contentPane.add(lbCorreos);
 		
 		//jlabel lbApellidos para el textfield tfApellidos
-		JLabel lbApellidos = new JLabel("Apellidos:");
+		JLabel lbApellidos = new JLabel("Apellidos: *");
 		lbApellidos.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lbApellidos.setBounds(10, 120, 62, 14);
+		lbApellidos.setBounds(10, 120, 72, 14);
 		lbApellidos.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		contentPane.add(lbApellidos);
 		
 		//jlabel lbContrasenia para el textfield tfContrasenia
-		JLabel lbContrasenia = new JLabel("Contrasenia:");
+		JLabel lbContrasenia = new JLabel("Contraseña: *");
 		lbContrasenia.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		lbContrasenia.setBounds(327, 85, 105, 14);
 		lbContrasenia.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
@@ -85,7 +85,7 @@ public class VistaRegister extends JFrame {
 		
 		//Boton btnCrearCuenta con el que crearemos la cuenta con los datos establecidos
 		JButton btnCrearCuenta = new JButton("");
-		btnCrearCuenta.setIcon(new ImageIcon(VistaRegister.class.getResource("/imagenes/RegistrarseIcono.png")));
+		btnCrearCuenta.setIcon(new ImageIcon(VistaRegister.class.getResource("/assets/imagenes/RegistrarseIcono.png")));
 		btnCrearCuenta.setBounds(269, 239, 62, 35);
 		btnCrearCuenta.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		btnCrearCuenta.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
@@ -101,7 +101,7 @@ public class VistaRegister extends JFrame {
 				
 			}
 		});
-		btnAtras.setIcon(new ImageIcon(VistaLogin.class.getResource("/imagenes/IconoBotonAtras.png")));
+		btnAtras.setIcon(new ImageIcon(VistaRegister.class.getResource("/assets/imagenes/IconoBotonAtras.png")));
 		btnAtras.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
 		btnAtras.setBounds(10, 35, 42, 32);
 		
@@ -185,6 +185,8 @@ public class VistaRegister extends JFrame {
 		
 		//textfield para insertar el nombre de usuario
 		tfUsuario = new JTextField();
+		tfUsuario.setEnabled(false);
+		tfUsuario.setEditable(false);
 		tfUsuario.setColumns(10);
 		tfUsuario.setBounds(460, 122, 134, 20);
 		contentPane.add(tfUsuario);
@@ -209,7 +211,7 @@ public class VistaRegister extends JFrame {
 		contentPane.add(lbTitulo);
 		
 		//jlabel lblDireccionDeEnvio para el textfield tflDireccionDeEnvio
-		JLabel lblDireccionDeEnvio = new JLabel("Direccion de envio:");
+		JLabel lblDireccionDeEnvio = new JLabel("Direccion de envio: *");
 		lblDireccionDeEnvio.setForeground(new Color(63, 134, 113));
 		lblDireccionDeEnvio.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		lblDireccionDeEnvio.setBounds(327, 162, 122, 14);
@@ -303,6 +305,22 @@ public class VistaRegister extends JFrame {
 		//Llamamos al metodo volverAtras del controlador
 		controlador.volverAtras();
 		
+	}
+
+	public JTextField getTfUsuario() {
+		return tfUsuario;
+	}
+
+	public void setTfUsuario(JTextField tfUsuario) {
+		this.tfUsuario = tfUsuario;
+	}
+
+	public JTextField getTfNombre() {
+		return tfNombre;
+	}
+
+	public JTextField getTfApellidos() {
+		return tfApellidos;
 	}
 	
 	
