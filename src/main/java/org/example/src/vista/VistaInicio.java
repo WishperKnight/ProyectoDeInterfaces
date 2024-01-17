@@ -39,7 +39,7 @@ public class VistaInicio extends JFrame {
 	public VistaInicio() {
 		setTitle("Ventana Inicio");
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaInicio.class.getResource("/imagenes/logoMercadona.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaInicio.class.getResource("/org/example/src/imagenes/logoMercadona.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 617, 407);
 		contentPane = new JPanel();
