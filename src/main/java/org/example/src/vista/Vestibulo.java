@@ -66,8 +66,11 @@ public class Vestibulo extends JFrame {
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Cuenta");
 		mnNewMenu_1.add(mntmNewMenuItem_2);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Salir");
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Cerrar Sesi\u00F3n");
 		mnNewMenu_1.add(mntmNewMenuItem_1);
+		
+		JMenuItem mntmNewMenuItem_9 = new JMenuItem("Salir");
+		mnNewMenu_1.add(mntmNewMenuItem_9);
 		
 		JMenu mnNewMenu = new JMenu("Categor\u00EDas");
 		mnNewMenu.setForeground(new Color(0, 147, 94));
@@ -88,6 +91,9 @@ public class Vestibulo extends JFrame {
 		
 		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Bebidas");
 		mnNewMenu.add(mntmNewMenuItem_7);
+		
+		JMenuItem mntmNewMenuItem_8 = new JMenuItem("Snacks");
+		mnNewMenu.add(mntmNewMenuItem_8);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setBackground(new Color(255, 255, 255));
@@ -96,8 +102,8 @@ public class Vestibulo extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("IAMGEN");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\yeray\\OneDrive\\Escritorio\\CarnePescado.png"));
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\yeray\\Downloads\\CarnePescado.png"));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 33));
 		lblNewLabel_1.setBounds(39, 39, 162, 184);
 		contentPane.add(lblNewLabel_1);
@@ -116,59 +122,64 @@ public class Vestibulo extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("IAMGEN");
+		lblNewLabel_1_1.setIcon(new ImageIcon("C:\\Users\\yeray\\OneDrive\\Documentos\\GitHub\\ProyectoDeInterfaces\\src\\main\\java\\org\\example\\src\\imagenes\\productosbasicos.png"));
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 33));
 		lblNewLabel_1_1.setBounds(350, 39, 162, 184);
 		panel.add(lblNewLabel_1_1);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("Carnes y Pescados");
+		JLabel lblNewLabel_2_1 = new JLabel("Productos B\u00E1sicos");
 		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2_1.setForeground(new Color(0, 147, 94));
 		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_2_1.setBounds(350, 218, 160, 25);
 		panel.add(lblNewLabel_2_1);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("IAMGEN");
+		JLabel lblNewLabel_1_2 = new JLabel("");
+		lblNewLabel_1_2.setIcon(new ImageIcon("C:\\Users\\yeray\\OneDrive\\Documentos\\GitHub\\ProyectoDeInterfaces\\src\\main\\java\\org\\example\\src\\imagenes\\Vegetales.png"));
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 33));
 		lblNewLabel_1_2.setBounds(658, 39, 162, 184);
 		panel.add(lblNewLabel_1_2);
 		
-		JLabel lblNewLabel_2_2 = new JLabel("Carnes y Pescados");
+		JLabel lblNewLabel_2_2 = new JLabel("Vegetales");
 		lblNewLabel_2_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2_2.setForeground(new Color(0, 147, 94));
 		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_2_2.setBounds(658, 218, 160, 25);
 		panel.add(lblNewLabel_2_2);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("IAMGEN");
+		JLabel lblNewLabel_1_3 = new JLabel("");
+		lblNewLabel_1_3.setIcon(new ImageIcon("C:\\Users\\yeray\\OneDrive\\Documentos\\GitHub\\ProyectoDeInterfaces\\src\\main\\java\\org\\example\\src\\imagenes\\fruta.png"));
 		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.PLAIN, 33));
 		lblNewLabel_1_3.setBounds(40, 271, 162, 184);
 		panel.add(lblNewLabel_1_3);
 		
-		JLabel lblNewLabel_2_3 = new JLabel("Carnes y Pescados");
+		JLabel lblNewLabel_2_3 = new JLabel("Fruta");
 		lblNewLabel_2_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2_3.setForeground(new Color(0, 147, 94));
 		lblNewLabel_2_3.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_2_3.setBounds(40, 450, 160, 25);
 		panel.add(lblNewLabel_2_3);
 		
-		JLabel lblNewLabel_1_4 = new JLabel("IAMGEN");
+		JLabel lblNewLabel_1_4 = new JLabel("");
+		lblNewLabel_1_4.setIcon(new ImageIcon("C:\\Users\\yeray\\OneDrive\\Documentos\\GitHub\\ProyectoDeInterfaces\\src\\main\\java\\org\\example\\src\\imagenes\\Bebidas.png"));
 		lblNewLabel_1_4.setFont(new Font("Tahoma", Font.PLAIN, 33));
 		lblNewLabel_1_4.setBounds(350, 271, 162, 184);
 		panel.add(lblNewLabel_1_4);
 		
-		JLabel lblNewLabel_2_4 = new JLabel("Carnes y Pescados");
+		JLabel lblNewLabel_2_4 = new JLabel("Bebidas");
 		lblNewLabel_2_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2_4.setForeground(new Color(0, 147, 94));
 		lblNewLabel_2_4.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_2_4.setBounds(350, 450, 160, 25);
 		panel.add(lblNewLabel_2_4);
 		
-		JLabel lblNewLabel_1_5 = new JLabel("IAMGEN");
+		JLabel lblNewLabel_1_5 = new JLabel("");
+		lblNewLabel_1_5.setIcon(new ImageIcon("C:\\Users\\yeray\\OneDrive\\Documentos\\GitHub\\ProyectoDeInterfaces\\src\\main\\java\\org\\example\\src\\imagenes\\snacks.png"));
 		lblNewLabel_1_5.setFont(new Font("Tahoma", Font.PLAIN, 33));
 		lblNewLabel_1_5.setBounds(656, 271, 162, 184);
 		panel.add(lblNewLabel_1_5);
 		
-		JLabel lblNewLabel_2_5 = new JLabel("Carnes y Pescados");
+		JLabel lblNewLabel_2_5 = new JLabel("Snacks");
 		lblNewLabel_2_5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2_5.setForeground(new Color(0, 147, 94));
 		lblNewLabel_2_5.setFont(new Font("Tahoma", Font.BOLD, 15));
