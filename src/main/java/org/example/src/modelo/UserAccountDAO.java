@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import Crud.conector.Conection;
 public class UserAccountDAO {
 
 	/**
@@ -49,7 +49,7 @@ public class UserAccountDAO {
 				valido = resultSet.next(); // Establecer valido como true si se encontró alguna fila
 			}
 		} catch (SQLException e) {
-			e.printStackTrace(); // Manejar la excepción adecuadamente en tu aplicación, esto es solo un ejemplo
+			e.printStackTrace(); // Manejar la excepción adecuadamente
 		} finally {
 			// Cerrar la conexión aquí si es necesario
 		}

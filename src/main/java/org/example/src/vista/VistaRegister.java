@@ -400,4 +400,21 @@ public class VistaRegister extends JFrame {
 	public JTextField getTfApellidos() {
 		return tfApellidos;
 	}
+
+	public JTextField getTfCorreo() {
+		return tfCorreo;
+	}
+
+	public JTextField getTfContrasenia() {
+		return tfContrasenia;
+	}
+
+	public JTextField getTfNumeroTelefono() {
+		return tfNumeroTelefono;
+	}
+
+	public JTextField getTfDireccionEnvio() {
+		return tfDireccionEnvio;
+	}
+	
 }

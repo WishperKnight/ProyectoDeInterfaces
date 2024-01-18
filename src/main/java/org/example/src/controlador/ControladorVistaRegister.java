@@ -117,6 +117,24 @@ public class ControladorVistaRegister {
 
 
 	}
+	private void validateFields() {
+		if(register.getTfNombre().getText().isEmpty()) {
+			System.err.println("El campo debe estar completo");
+		}
+		if(register.getTfApellidos().getText().isEmpty()) {
+			System.err.println("El campo debe estar completo");
+		}
+		if(register.getTfContrasenia().getText().isEmpty()) {
+			System.err.println("El campo debe estar completo");
+		}
+		if(register.getTfDireccionEnvio().getText().isEmpty()) {
+			System.err.println("El campo debe estar completo");
+		}
+		if(register.getTfCorreo().getText().isEmpty()) {
+			System.err.println("El campo debe estar completo");
+		}
+		
+	}
 	
 	//Metodo para reproducir audio de ayuda
 	public void reproducirAudio() {
