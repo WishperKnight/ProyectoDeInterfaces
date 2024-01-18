@@ -16,6 +16,8 @@ import java.awt.Color;
 import javax.swing.JMenu;
 import java.awt.Dimension;
 import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Vestibulo extends JFrame {
 
@@ -95,6 +97,13 @@ public class Vestibulo extends JFrame {
 		JMenuItem mntmNewMenuItem_8 = new JMenuItem("Snacks");
 		mnNewMenu.add(mntmNewMenuItem_8);
 		contentPane = new JPanel();
+		contentPane.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				
+			}
+		});
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setBackground(new Color(255, 255, 255));
 

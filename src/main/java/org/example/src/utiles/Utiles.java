@@ -1,8 +1,13 @@
 package org.example.src.utiles;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class Utiles {
 	
@@ -41,6 +46,26 @@ public class Utiles {
 		//parametro) 
 		componente.setToolTipText("<html><p>" + mensaje + "</p></html>");
 
+		
+	}
+	
+	public static void showErrorDialog(JFrame parentFrame, String titulo, String mensaje) {
+		 JDialog dialog = new JDialog(parentFrame, titulo, true);
+	        JPanel panel = new JPanel(new BorderLayout());
+
+	        JLabel label = new JLabel(mensaje);
+	        panel.add(label, BorderLayout.CENTER);
+
+	        dialog.add(panel);
+	        dialog.setSize(300, 150);
+	        dialog.setLocationRelativeTo(parentFrame);
+	        dialog.setVisible(true);
+	        
+	        /*
+	         * Línea que se debe usar en el main
+	         * 
+	         * showDialog(frame, "Dialog Title", "This is the content of the dialog.");
+	         */
 		
 	}
 	
