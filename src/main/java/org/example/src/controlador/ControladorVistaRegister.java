@@ -7,6 +7,7 @@ import java.io.File;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import org.example.src.utiles.*;
 
 import org.example.src.vista.VistaInicio;
 
@@ -15,7 +16,7 @@ import org.example.src.vista.VistaInicio;
  */
 public class ControladorVistaRegister {
 
-	VistaRegister register;
+	static VistaRegister register;
 
 	// Constructor donde pasamos la vista register
 	public ControladorVistaRegister(VistaRegister register) {
@@ -70,6 +71,7 @@ public class ControladorVistaRegister {
 			if (nombre.isEmpty()) {
 				
 				System.err.println("Error, debe insertar un nombre");
+				Utiles.showErrorDialog(register , "Error", "Se debe de insertar un nombre");
 				
 			}else {
 				
@@ -92,6 +94,8 @@ public class ControladorVistaRegister {
 						
 						System.err.println("Error, nombre y/o apellidos demasiado"
 								+ " cortos");
+						Utiles.showErrorDialog(register , "Error", "Nombres y/o apellidos demasiado cortos");
+
 						
 					}else {
 						
@@ -107,6 +111,8 @@ public class ControladorVistaRegister {
 					
 				} else {
 					System.err.print("Error, debe introducir dos apellidos");
+					Utiles.showErrorDialog(register , "Error", "Se debe de introducir dos apellidos");
+
 				}
 
 

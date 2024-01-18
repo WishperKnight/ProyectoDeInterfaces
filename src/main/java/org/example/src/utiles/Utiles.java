@@ -1,48 +1,77 @@
 package org.example.src.utiles;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
+/**
+ * La clase Utiles proporciona métodos útiles relacionados con la interfaz de usuario y colores.
+ */
 public class Utiles {
-	
-	
-	//Colores
-	public static String COLOR_AZUL = "339999";
-	public static String COLOR_CLARO = "D6EAE2";
-	public static String COLOR_VERDE = "3F8671";
-	public static String COLOR_ROJO = "FF0000";
-	
-	// COLORES CONSOLA
-	public static final String ANSI_RED = "\u001B[31m";
-	public static final String ANSI_GREEN = "\u001B[32m";
 
-	//Metodo para convertir un color en formato hexadecimal a un color java
-	public static Color convertirColorJava(String color) {
-		
-		//Primero convertimos el color hexadecimal a decimal
-		 int colorDecimal = Integer.parseInt(color, 16);
-		 
-		 //Dicho color decimal lo pasamos a String
-		 String colorDecimalString = String.valueOf(colorDecimal);
-		 
-		 //Utilizamos el medoto decode e introducimos el string del color para devolver un objeto Color de java
-		Color colorJava = Color.decode(colorDecimalString);
-		
-		//Por ultimo este metodo devolvera el objeto Color
-		return colorJava;
-		
-	}
-	
-	//Metodo para aniadir ToolTips a los componentes que yo quiera
-	public static void toolTip(JComponent componente, String mensaje) {
-		
-		//Le aniado el ToolTip (que sera el string que yo le paso al metodo por parametro) al componente, (que tambien sera el que le paso al metodo por 
-		//parametro) 
-		componente.setToolTipText("<html><p>" + mensaje + "</p></html>");
+    // Colores en formato hexadecimal
+    public static String COLOR_AZUL = "339999";
+    public static String COLOR_CLARO = "D6EAE2";
+    public static String COLOR_VERDE = "3F8671";
+    public static String COLOR_ROJO = "FF0000";
 
-		
-	}
-	
-	
+    // COLORES PARA LA CONSOLA
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+
+    /**
+     * Convierte un color en formato hexadecimal a un objeto Color de Java.
+     *
+     * @param color El color en formato hexadecimal.
+     * @return Un objeto Color de Java.
+     */
+    public static Color convertirColorJava(String color) {
+        // Convertir el color hexadecimal a decimal
+        int colorDecimal = Integer.parseInt(color, 16);
+
+        // Convertir el color decimal a String
+        String colorDecimalString = String.valueOf(colorDecimal);
+
+        // Utilizar el método decode para obtener un objeto Color de Java
+        Color colorJava = Color.decode(colorDecimalString);
+
+        // Devolver el objeto Color
+        return colorJava;
+    }
+
+    /**
+     * Añade un Tooltip a un componente específico.
+     *
+     * @param componente El componente al que se añadirá el Tooltip.
+     * @param mensaje    El mensaje del Tooltip.
+     */
+    public static void toolTip(JComponent componente, String mensaje) {
+        // Añadir el Tooltip al componente
+        componente.setToolTipText("<html><p>" + mensaje + "</p></html>");
+    }
+
+    /**
+     * Muestra un cuadro de diálogo de error con un mensaje y un título específicos.
+     *
+     * @param parentFrame El JFrame padre al que estará asociado el cuadro de diálogo.
+     * @param titulo      El título del cuadro de diálogo.
+     * @param mensaje     El mensaje de error a mostrar.
+     */
+    public static void showErrorDialog(JFrame parentFrame, String titulo, String mensaje) {
+        JDialog dialog = new JDialog(parentFrame, titulo, true);
+        JPanel panel = new JPanel(new BorderLayout());
+
+        JLabel label = new JLabel(mensaje);
+        panel.add(label, BorderLayout.CENTER);
+
+        dialog.add(panel);
+        dialog.setSize(300, 150);
+        dialog.setLocationRelativeTo(parentFrame);
+        dialog.setVisible(true);
+    }
 }
