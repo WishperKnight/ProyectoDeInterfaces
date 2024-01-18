@@ -56,35 +56,44 @@ public class VistaRegister extends JFrame {
 		contentPane.setLayout(null);
 		
 		//jlabel lbNombre para el textfield tfNombre
-		JLabel lbNombre = new JLabel("Nombre: *");
+		JLabel lbNombre = new JLabel("Nombre:");
 		lbNombre.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lbNombre.setBounds(10, 81, 62, 14);
+		lbNombre.setBounds(10, 81, 55, 14);
 		lbNombre.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		contentPane.add(lbNombre);
 		
 		//jlabel lbCorreos para el textfield tfCorreo
-		JLabel lbCorreos = new JLabel("Correo: *");
+		JLabel lbCorreos = new JLabel("Correo:");
 		lbCorreos.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lbCorreos.setBounds(10, 196, 62, 14);
+		lbCorreos.setBounds(10, 196, 44, 14);
 		lbCorreos.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		contentPane.add(lbCorreos);
 		
 		//jlabel lbApellidos para el textfield tfApellidos
-		JLabel lbApellidos = new JLabel("Apellidos: *");
+		JLabel lbApellidos = new JLabel("Apellidos:");
 		lbApellidos.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lbApellidos.setBounds(10, 120, 72, 14);
+		lbApellidos.setBounds(10, 120, 62, 14);
 		lbApellidos.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		contentPane.add(lbApellidos);
 		
 		//jlabel lbContrasenia para el textfield tfContrasenia
-		JLabel lbContrasenia = new JLabel("Contraseña: *");
+		JLabel lbContrasenia = new JLabel("Contraseña:");
 		lbContrasenia.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lbContrasenia.setBounds(327, 85, 105, 14);
+		lbContrasenia.setBounds(327, 85, 76, 14);
 		lbContrasenia.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		contentPane.add(lbContrasenia);
 		
 		//Boton btnCrearCuenta con el que crearemos la cuenta con los datos establecidos
 		JButton btnCrearCuenta = new JButton("");
+		btnCrearCuenta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				setUsername();
+				
+				
+				
+			}
+		});
 		btnCrearCuenta.setIcon(new ImageIcon(VistaRegister.class.getResource("/assets/imagenes/RegistrarseIcono.png")));
 		btnCrearCuenta.setBounds(269, 239, 62, 35);
 		btnCrearCuenta.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
@@ -167,20 +176,20 @@ public class VistaRegister extends JFrame {
 		
 		//textfield para insertar el nombre
 		tfNombre = new JTextField();
-		tfNombre.setBounds(82, 79, 134, 20);
+		tfNombre.setBounds(96, 81, 134, 20);
 		contentPane.add(tfNombre);
 		tfNombre.setColumns(10);
 		
 		//textfield para insertar los apellidos
 		tfApellidos = new JTextField();
 		tfApellidos.setColumns(10);
-		tfApellidos.setBounds(82, 118, 134, 20);
+		tfApellidos.setBounds(96, 120, 134, 20);
 		contentPane.add(tfApellidos);
 		
 		//textfield para insertar el correo electronico
 		tfCorreo = new JTextField();
 		tfCorreo.setColumns(10);
-		tfCorreo.setBounds(82, 194, 134, 20);
+		tfCorreo.setBounds(96, 196, 134, 20);
 		contentPane.add(tfCorreo);
 		
 		//textfield para insertar el nombre de usuario
@@ -200,21 +209,51 @@ public class VistaRegister extends JFrame {
 		//textfield para insertar el numero de telefono
 		tfNumeroTelefono = new JTextField();
 		tfNumeroTelefono.setColumns(10);
-		tfNumeroTelefono.setBounds(82, 156, 134, 20);
+		tfNumeroTelefono.setBounds(96, 158, 134, 20);
 		contentPane.add(tfNumeroTelefono);
 		
 		//jlabel Sign up
 		JLabel lbTitulo = new JLabel("Sign up");
 		lbTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
-		lbTitulo.setBounds(259, 35, 85, 35);
+		lbTitulo.setBounds(258, 35, 85, 35);
 		lbTitulo.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		contentPane.add(lbTitulo);
 		
+		//jlabel lbNombreRequerido para indicar que el textfield tfNombre es requerido
+		JLabel lbNombreRequerido = new JLabel("*");
+		lbNombreRequerido.setForeground(Utiles.convertirColorJava(Utiles.COLOR_ROJO));
+		lbNombreRequerido.setBounds(64, 76, 11, 20);
+		contentPane.add(lbNombreRequerido);
+		
+		//jlabel lbApellidosRequerido para indicar que el textfield tfApellidos es requerido
+		JLabel lbApellidosRequerido = new JLabel("*");
+		lbApellidosRequerido.setForeground(Utiles.convertirColorJava(Utiles.COLOR_ROJO));
+		lbApellidosRequerido.setBounds(69, 115, 14, 20);
+		contentPane.add(lbApellidosRequerido);
+		
+		//jlabel lbDireccionRequerido para indicar que el textfield tfDireccionEnvio es requerido
+		JLabel lbDireccionRequerido = new JLabel("*");
+		lbDireccionRequerido.setForeground(Utiles.convertirColorJava(Utiles.COLOR_ROJO));
+		lbDireccionRequerido.setBounds(439, 159, 11, 14);
+		contentPane.add(lbDireccionRequerido);
+		
+		//jlabel lbContraseniaRequerido para indicar que el textfield tfContrasenia es requerido
+		JLabel lbContraseniaRequerido = new JLabel("*");
+		lbContraseniaRequerido.setForeground(Utiles.convertirColorJava(Utiles.COLOR_ROJO));
+		lbContraseniaRequerido.setBounds(400, 82, 14, 14);
+		contentPane.add(lbContraseniaRequerido);
+		
+		//jlabel lbCorreoRequerido para indicar que el textfield tfCorreo es requerido
+		JLabel lbCorreoRequerido = new JLabel("*");
+		lbCorreoRequerido.setForeground(Utiles.convertirColorJava(Utiles.COLOR_ROJO));
+		lbCorreoRequerido.setBounds(56, 190, 11, 20);
+		contentPane.add(lbCorreoRequerido);
+		
 		//jlabel lblDireccionDeEnvio para el textfield tflDireccionDeEnvio
-		JLabel lblDireccionDeEnvio = new JLabel("Direccion de envio: *");
-		lblDireccionDeEnvio.setForeground(new Color(63, 134, 113));
+		JLabel lblDireccionDeEnvio = new JLabel("Direccion de envio:");
+		lblDireccionDeEnvio.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		lblDireccionDeEnvio.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-		lblDireccionDeEnvio.setBounds(327, 162, 122, 14);
+		lblDireccionDeEnvio.setBounds(327, 162, 111, 14);
 		contentPane.add(lblDireccionDeEnvio);
 		
 		//textfield para insertar la direccion a la que se enviaran los pedidos
@@ -268,22 +307,38 @@ public class VistaRegister extends JFrame {
 		menuBar.add(menuAudio);
 		
 		//JMenuItem menuItemAudioReproducir con el que podremos reproducir el audio de ayuda
-		JMenuItem menuItemAudioRproducir = new JMenuItem("Reproducir audio de ayuda");
-		menuItemAudioRproducir.addActionListener(new ActionListener() {
+		JMenuItem menuItemAudioReproducir = new JMenuItem("Reproducir audio de ayuda");
+		menuItemAudioReproducir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				
+				//Llamamos al metodo reproducirAudio
+				reproducirAudio();
 				
 			}
 		});
-		menuItemAudioRproducir.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
-		menuItemAudioRproducir.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
-		menuAudio.add(menuItemAudioRproducir);
+		menuItemAudioReproducir.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
+		menuItemAudioReproducir.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
+		menuAudio.add(menuItemAudioReproducir);
+		
+		//Boton para reproducir el audio de ayuda
+		JButton btnAudio = new JButton("");
+		btnAudio.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
+		btnAudio.setIcon(new ImageIcon(VistaRegister.class.getResource("/assets/imagenes/IconoBotonAudio.png")));
+		btnAudio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//Llamamos al metodo reproducirAudio
+				reproducirAudio();
+				
+			}
+		});
+		btnAudio.setBounds(552, 35, 42, 32);
+		contentPane.add(btnAudio);
 		
 		//Atajos de teclado
 		menuItemVolver.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.CTRL_MASK));
 		menuItemCuentaEstablecer.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.CTRL_MASK));
-		menuItemAudioRproducir.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, ActionEvent.CTRL_MASK));
+		menuItemAudioReproducir.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, ActionEvent.CTRL_MASK));
 		
 		
 		//Aniado ToolTips mediante el metodo de la clase Utiles
@@ -296,6 +351,14 @@ public class VistaRegister extends JFrame {
 		Utiles.toolTip(tfCorreo, "Inserta tu correo electronico");
 		Utiles.toolTip(btnAtras, "Volver a la anterior ventana");
 		Utiles.toolTip(btnCrearCuenta, "Confirma la creacion de la cuenta");
+		Utiles.toolTip(btnAudio, "Reproducir audio que explica el funcionamiento de esta ventana");
+		Utiles.toolTip(menuItemReproducirAudio, "Reproducir audio que explica el funcionamiento de esta ventana");
+		Utiles.toolTip(menuItemRegistrarse, "Confirma la creacion de la cuenta");
+		Utiles.toolTip(menuItemVolverAtras, "Volver a la anterior ventana");
+		Utiles.toolTip(menuItemVolver, "Volver a la anterior ventana");
+		Utiles.toolTip(menuItemAudioReproducir, "Reproducir audio que explica el funcionamiento de esta ventana");
+		Utiles.toolTip(menuItemCuentaEstablecer, "Confirma la creacion de la cuenta");
+	
 		
 	}
 	
@@ -306,6 +369,21 @@ public class VistaRegister extends JFrame {
 		controlador.volverAtras();
 		
 	}
+	
+	//Metodo para reproducir audio de ayuda
+	public void reproducirAudio() {
+		
+		//Llamamos al metodo reproducirAudio del controlador
+		controlador.reproducirAudio();
+		
+	}
+	
+	public void setUsername() {
+		
+		controlador.setUsername();
+		
+	}
+
 
 	public JTextField getTfUsuario() {
 		return tfUsuario;
@@ -322,6 +400,4 @@ public class VistaRegister extends JFrame {
 	public JTextField getTfApellidos() {
 		return tfApellidos;
 	}
-	
-	
 }

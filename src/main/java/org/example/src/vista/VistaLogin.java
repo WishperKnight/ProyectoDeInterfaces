@@ -199,13 +199,6 @@ public class VistaLogin extends JFrame {
 		
 		contentPane.add(btnAtras);
 		
-		//Aniado ToolTips mediante el metodo de la clase Utiles
-		Utiles.toolTip(tfUsuario, "Inserta el nombre de usuario");
-		Utiles.toolTip(btnIniciarSesion, "Iniciar sesion");
-		Utiles.toolTip(pfContrasenia, "Inserta la contraseña");
-		Utiles.toolTip(btnAudio, "Reproducir audio que explica el funcionamiento de esta ventana");
-		Utiles.toolTip(btnAtras, "Volver a la anterior ventana");
-		
 		//MenuBar para el menu general
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 323, 22);
@@ -268,6 +261,20 @@ public class VistaLogin extends JFrame {
 		menuItemVolver.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.CTRL_MASK));
 		menuItemSesionIniciar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.CTRL_MASK));
 		menuItemAudioReproducir.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, ActionEvent.CTRL_MASK));
+		
+		//Aniado ToolTips mediante el metodo de la clase Utiles
+		Utiles.toolTip(tfUsuario, "Inserta el nombre de usuario");
+		Utiles.toolTip(btnIniciarSesion, "Iniciar sesion");
+		Utiles.toolTip(pfContrasenia, "Inserta la contraseña");
+		Utiles.toolTip(btnAudio, "Reproducir audio que explica el funcionamiento de esta ventana");
+		Utiles.toolTip(btnAtras, "Volver a la anterior ventana");
+		Utiles.toolTip(menuItemSesionIniciar, "Iniciar sesion");
+		Utiles.toolTip(menuItemAudioReproducir, "Reproducir audio que explica el funcionamiento de esta ventana");
+		Utiles.toolTip(menuItemVolver, "Volver a la anterior ventana");
+		Utiles.toolTip(menuItemIniciarSesion, "Iniciar sesion");
+		Utiles.toolTip(menuItemReproducirAudio, "Reproducir audio que explica el funcionamiento de esta ventana");
+		Utiles.toolTip(menuItemVolverAtras, "Volver a la anterior ventana");
+		
 		
 	}
 	

@@ -2,6 +2,12 @@ package org.example.src.controlador;
 
 import org.example.src.vista.VistaRegister;
 
+import java.io.File;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
 import org.example.src.vista.VistaInicio;
 
 /**
@@ -54,37 +60,89 @@ public class ControladorVistaRegister {
 	 * @return userName Nombre del usuario autogenerado
 	 */
 	private static String createUserName(String nombre, String apellidos) {
-		String userName = null;
-		try {
 
-			String primerApellidos = null;
-			String segundoApellidos = null;
 
-			if (apellidos.contains(" ") == true) {// Comprueba si son dos apellidos buscando el espacio
-				/*
-				 * separa el primer apellido en un substring desde el primer
-				 * 
-				 * caracter hasta el espacio
-				 */
-				primerApellidos = apellidos.substring(0, apellidos.indexOf(" "));
-				/*
-				 * separa el segundo apellidos desde el espacio hasta el ultimo caracter
-				 */
-				segundoApellidos = apellidos.substring(primerApellidos.length(), apellidos.length()).trim();
-			} else {
-				System.err.print("Debe introducir dos apellidos");
+			String userName = null;
+			
+			String primerApellido = null;
+			String segundoApellido = null;
+			
+			if (nombre.isEmpty()) {
+				
+				System.err.println("Error, debe insertar un nombre");
+				
+			}else {
+				
+				if (apellidos.contains(" ") == true) {// Comprueba si son dos apellidos buscando el espacio
+					/*
+					 * separa el primer apellido en un substring desde el primer
+					 * 
+					 * caracter hasta el espacio
+					 */
+					primerApellido = apellidos.substring(0, apellidos.indexOf(" "));
+					/*
+					 * separa el segundo apellidos desde el espacio hasta el ultimo caracter
+					 */
+					
+					
+					segundoApellido = apellidos.substring(primerApellido.length(), apellidos.length()).trim();
+					
+					if (nombre.length()<3 || primerApellido.length()<3 || segundoApellido.length()<3) {
+						
+						
+						System.err.println("Error, nombre y/o apellidos demasiado"
+								+ " cortos");
+						
+					}else {
+						
+						// forma el userName concatenando los tres primeros caracteres del nombre, y
+						// primer y segundo apellido
+						userName = nombre.substring(0, 3).concat(primerApellido.substring(0, 3))
+								.concat(segundoApellido.substring(0, 3)).toLowerCase().trim();
+						System.out.println(userName);
+						
+					}
+					
+					
+					
+				} else {
+					System.err.print("Error, debe introducir dos apellidos");
+				}
+
+
+				
 			}
-			// forma el userName concatenando los tres primeros caracteres del nombre, y
-			// primer y segundo apellido
-			userName = nombre.substring(0, 3).concat(primerApellidos.substring(0, 3))
-					.concat(segundoApellidos.substring(0, 3)).toLowerCase().trim();
-			System.out.println(userName);
+			
 			return userName;
-		} catch (Exception e) {
-			System.err.println("Debe introducir dos apellidos");
-		}
-		return userName;
 
+
+	}
+	
+	//Metodo para reproducir audio de ayuda
+	public void reproducirAudio() {
+		
+		
+		
+		//Almacenamos el archivo de audio en una variable File
+		File archivoAudio = new File("src/main/java/assets/audios/audioRegister.wav");
+		
+		try {
+			//Almacenamos el audio en un objeto AudioInputStream
+			AudioInputStream audio = AudioSystem.getAudioInputStream(archivoAudio);
+			//Obtenemos un clip con el que podremos reproducir el sonido
+			Clip clip = AudioSystem.getClip();
+			//Abrimos el flujo de audio
+			clip.open(audio);
+			//Reproduzco el audio
+			clip.start();
+		
+		} catch (Exception exception) {
+			// TODO Auto-generated catch block
+			exception.printStackTrace();
+		}
+
+		
+		
 	}
 
 }
