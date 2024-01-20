@@ -51,6 +51,7 @@ public class VistaLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaLogin() {
+		
 		setTitle("Iniciar sesion");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaLogin.class.getResource("/assets/imagenes/logoMercadona.png")));
 		setResizable(false);
@@ -278,6 +279,76 @@ public class VistaLogin extends JFrame {
 		
 	}
 	
+	/**
+	 * @return the contentPane
+	 */
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+	/**
+	 * @param contentPane the contentPane to set
+	 */
+	public void setContentPane(JPanel contentPane) {
+		this.contentPane = contentPane;
+	}
+
+	/**
+	 * @return the tfUsuario
+	 */
+	public JTextField getTfUsuario() {
+		return tfUsuario;
+	}
+
+	/**
+	 * @param tfUsuario the tfUsuario to set
+	 */
+	public void setTfUsuario(JTextField tfUsuario) {
+		this.tfUsuario = tfUsuario;
+	}
+
+	/**
+	 * @return the pfContrasenia
+	 */
+	public JPasswordField getPfContrasenia() {
+		return pfContrasenia;
+	}
+
+	/**
+	 * @param pfContrasenia the pfContrasenia to set
+	 */
+	public void setPfContrasenia(JPasswordField pfContrasenia) {
+		this.pfContrasenia = pfContrasenia;
+	}
+
+	/**
+	 * @return the lbError
+	 */
+	public JLabel getLbError() {
+		return lbError;
+	}
+
+	/**
+	 * @param lbError the lbError to set
+	 */
+	public void setLbError(JLabel lbError) {
+		this.lbError = lbError;
+	}
+
+	/**
+	 * @return the controlador
+	 */
+	public ControladorLogin getControlador() {
+		return controlador;
+	}
+
+	/**
+	 * @param controlador the controlador to set
+	 */
+	public void setControlador(ControladorLogin controlador) {
+		this.controlador = controlador;
+	}
+
 	//Metodo para iniciar sesion
 	public void iniciarSesion() {
 		
