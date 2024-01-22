@@ -4,7 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import Crud.conector.Conection;
+
+import org.example.src.conector.Conection;
 public class UserAccountDAO {
 
 	/**
@@ -14,7 +15,7 @@ public class UserAccountDAO {
 	 * @throws SQLException
 	 */
 	public void insertarUser(UserAccount userAccount) throws SQLException {
-		Connection con = Conection.conexion();
+		Connection con = Conection.connection();
 		String query = "INSERT INTO useraccount (name, surname, username, password, email, phone, adress) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		try (PreparedStatement statement = con.prepareStatement(query)) {
 			statement.setString(1, userAccount.getName());
@@ -36,7 +37,7 @@ public class UserAccountDAO {
 	 * @return
 	 */
 	public boolean validarUser(String username, String password) {
-		Connection con = Conection.conexion();
+		Connection con = Conection.connection();
 		boolean valido = false;
 
 		String query = "SELECT * FROM USERACCOUNT WHERE USERNAME=? AND PASSWORD=?;";

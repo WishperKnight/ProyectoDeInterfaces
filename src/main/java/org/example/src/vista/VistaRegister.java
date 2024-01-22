@@ -26,6 +26,8 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VistaRegister extends JFrame {
 
@@ -88,8 +90,8 @@ public class VistaRegister extends JFrame {
 		btnCrearCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				setUsername();
-				
+				//Llamamos al metodo registrarUsuarioEnLaBBDD
+				registrarUsuarioEnLaBBDD();
 				
 				
 			}
@@ -125,7 +127,8 @@ public class VistaRegister extends JFrame {
 		menuItemRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-
+				//Llamamos al metodo registrarUsuarioEnLaBBDD
+				registrarUsuarioEnLaBBDD();
 				
 			}
 		});
@@ -150,7 +153,8 @@ public class VistaRegister extends JFrame {
 		menuItemReproducirAudio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-
+				//Llamamos al metodo reproducirAudio
+				reproducirAudio();
 				
 			}
 		});
@@ -296,6 +300,15 @@ public class VistaRegister extends JFrame {
 		
 		//JMenuItem menuItemCuentaEstablecer con el que estableceremos la cuenta con los datos que he introducido
 		JMenuItem menuItemCuentaEstablecer = new JMenuItem("Establecer cuenta");
+		menuItemCuentaEstablecer.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				//Llamamos al metodo registrarUsuarioEnLaBBDD
+				registrarUsuarioEnLaBBDD();
+				
+			}
+		});
 		menuItemCuentaEstablecer.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
 		menuItemCuentaEstablecer.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		menuCuenta.add(menuItemCuentaEstablecer);
@@ -375,6 +388,12 @@ public class VistaRegister extends JFrame {
 		
 		//Llamamos al metodo reproducirAudio del controlador
 		controlador.reproducirAudio();
+		
+	}
+
+	public void registrarUsuarioEnLaBBDD() {
+		
+		controlador.registrarUsuarioEnLaBBDD();
 		
 	}
 	
