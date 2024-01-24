@@ -47,15 +47,15 @@ public class ControladorVistaRegister {
 		UserAccountDAO userAccountDAO = new UserAccountDAO();
 		int cont = 0;
 		// Crear un objeto UserAccount con los datos del formulario de registro
-		userAccount = new UserAccount(register.getTfNombre().getText().toString(),
-				register.getTfApellidos().getText().toString(),
-				createUserName(register.getTfNombre().getText().toString(),
-						register.getTfApellidos().getText().toString()),
-				register.getTfContrasenia().getText().toString(), register.getTfDireccionEnvio().getText().toString(),
-				register.getTfNumeroTelefono().getText().toString(), register.getTfCorreo().getText().toString());
+		userAccount = new UserAccount(register.tfNombre.getText().toString(),
+				register.tfApellidos.getText().toString(),
+				createUserName(register.tfNombre.getText().toString(),
+						register.tfApellidos.getText().toString()),
+				register.tfContrasenia.getText().toString(), register.tfDireccionEnvio.getText().toString(),
+				register.tfNumeroTelefono.getText().toString(), register.tfCorreo.getText().toString());
 
 		// Validar los campos y verificar la seguridad de la contraseña
-		if (validateFields() == true && contrasenaSegura(register.getTfContrasenia().getText().toString()) == true) {
+		if (validateFields() == true && contrasenaSegura(register.tfContrasenia.getText().toString()) == true) {
 			try {
 				do {
 					cont++;
@@ -146,9 +146,9 @@ public class ControladorVistaRegister {
 
 	public void setUsername() {
 		Utiles.showErrorDialog(register, "Nombre de Usuario: ", createUserName(
-				register.getTfNombre().getText().toString(), register.getTfApellidos().getText().toString()));
-		register.getTfUsuario().setText(createUserName(register.getTfNombre().getText().toString(),
-				register.getTfApellidos().getText().toString()));
+				register.tfNombre.getText().toString(), register.tfApellidos.getText().toString()));
+		register.tfUsuario.setText(createUserName(register.tfNombre.getText().toString(),
+				register.tfApellidos.getText().toString()));
 
 	}
 
@@ -222,10 +222,10 @@ public class ControladorVistaRegister {
 	 * @return true si todos los campos están completos, false de lo contrario.
 	 */
 	private boolean validateFields() {
-		if (campoVacio(register.getTfNombre(), "Nombre") || campoVacio(register.getTfApellidos(), "Apellidos")
-				|| campoVacio(register.getTfContrasenia(), "Contraseña")
-				|| campoVacio(register.getTfDireccionEnvio(), "Dirección de Envío")
-				|| campoVacio(register.getTfCorreo(), "Correo")) {
+		if (campoVacio(register.tfNombre.getText()) || campoVacio(register.tfApellidos.getText())
+				|| campoVacio(register.tfContrasenia.getText())
+				|| campoVacio(register.tfDireccionEnvio.getText())
+				|| campoVacio(register.tfCorreo.getText())) {
 			return false;
 		}
 		return true;
@@ -239,10 +239,10 @@ public class ControladorVistaRegister {
 	 * @param nombre El nombre del campo (para el mensaje de error).
 	 * @return true si el campo está vacío, false si no.
 	 */
-	private boolean campoVacio(JTextField campo, String nombre) {
-		if (campo.getText().isEmpty()) {
+	private boolean campoVacio(String campo) {
+		if (campo.isEmpty()) {
 			Utiles.showErrorDialog(register, "Campos esenciales vacios", "Por favor rellene los campos marcados con *");
-			System.err.println("El campo " + nombre + " debe estar completo");
+			System.err.println("El campo debe estar completo");
 			return true;
 		}
 		return false;
