@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.example.src.conector.Conection;
-import org.example.src.utiles.Utiles;
 import org.example.src.vista.VistaRegister;
 
 /**
@@ -73,22 +72,35 @@ public class UserAccountDAO {
 	 * @param UserName
 	 * @return T si ya existe F si no existe
 	 */
-	public boolean comprobarUser(String UserName) {
-		boolean exist = false;
-		Connection con = Conection.connection();
-		String query = "SELECT * FROM Usuario WHERE nombre_usuario=?;";
-		try (PreparedStatement statement = con.prepareStatement(query)) {
-			statement.setString(1, userName);
-			try (ResultSet resultSet = statement.executeQuery()) {
-				exist = resultSet.next(); // Establecer valido como true si se encontró alguna fila
-			} catch (SQLException e) {
-				e.printStackTrace(); // Manejar la excepción adecuadamente
-			} finally {
-				// Cerrar la conexión aquí si es necesario
-				con.close();
+	public boolean comprobarUser(String userName) {
+	    boolean exist = false;
+	    Connection con = null;
 
-			}
-			return exist;
-		}
+	    try {
+	        con = Conection.connection();
+	        String query = "SELECT * FROM Usuario WHERE nombre_usuario=?;";
+
+	        try (PreparedStatement statement = con.prepareStatement(query)) {
+	            statement.setString(1, userName);
+
+	            try (ResultSet resultSet = statement.executeQuery()) {
+	                exist = resultSet.next(); // Establecer exist como true si se encontró alguna fila
+	            }
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace(); // Manejar la excepción adecuadamente
+	    } finally {
+	        // Cerrar la conexión aquí si es necesario
+	        try {
+	            if (con != null) {
+	                con.close();
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace(); // Manejar la excepción adecuadamente
+	        }
+	    }
+
+	    return exist;
 	}
+
 }

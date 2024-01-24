@@ -28,7 +28,12 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
+/**
+ * Vista inicial que vera el usuario cuando la apliacion arranque
+ */
 public class VistaInicio extends JFrame {
 
 	private JPanel contentPane;
@@ -127,7 +132,7 @@ public class VistaInicio extends JFrame {
 		menuItemUsuarioInvitado.setBackground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		menuItemUsuarioInvitado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				goToLsndingPage();
 			}
 		});
 
@@ -139,6 +144,11 @@ public class VistaInicio extends JFrame {
 		// Boton btnUsuarioInvitado para acceder a la ventana principal usando un
 		// usuario invitado
 		JButton btnUsuarioInvitado = new JButton("Acceder como invitado");
+		btnUsuarioInvitado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				goToLsndingPage();
+			}
+		});
 		btnUsuarioInvitado.setForeground(new Color(63, 134, 113));
 		btnUsuarioInvitado.setBackground(new Color(214, 234, 226));
 		btnUsuarioInvitado.setBounds(212, 308, 168, 23);
@@ -194,6 +204,12 @@ public class VistaInicio extends JFrame {
 		// JMenuItem menuItemInvitadoAcceder con el que podremos iniciar sesion con una
 		// cuenta ya creada
 		JMenuItem menuItemInvitadoAcceder = new JMenuItem("Acceder como invitado");
+		menuItemInvitadoAcceder.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				goToLsndingPage();
+			}
+		});
 		menuItemInvitadoAcceder.setBackground(Utiles.convertirColorJava(Utiles.COLOR_CLARO));
 		menuItemInvitadoAcceder.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		menuInvitado.add(menuItemInvitadoAcceder);
@@ -238,7 +254,9 @@ public class VistaInicio extends JFrame {
 
 	}
 
-	// Metodo para dirigirnos a la ventana de inicio de sesion
+	/**
+	 * Metodo para dirigirnos a la ventana de inicio de sesion
+	 */
 	public void iniciarSesion() {
 
 		// Llamamos al metodo iniciarSesion del controlador
@@ -246,11 +264,21 @@ public class VistaInicio extends JFrame {
 
 	}
 
-	// Metodo para dirigirnos a la ventana de creacion de cuenta
+	/**
+	 * Metodo para dirigirnos a la ventana de creacion de cuenta
+	 */
 	public void crearCuenta() {
 
 		// Llamamos al metodo crearCuenta del controlador
 		controlador.crearCuenta();
 
+	}
+
+	/**
+	 * Metodo pa dirifirnos al la pagina principal de uso de la aplicacion
+	 */
+	public void goToLsndingPage() {
+		// Llamamos al metodo goToLsndingPage del controlador
+		controlador.goToLandingPage();
 	}
 }
