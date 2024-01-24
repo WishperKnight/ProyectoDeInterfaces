@@ -1,14 +1,21 @@
 -- Tabla Usuario en PostgreSQL
-CREATE TABLE Usuario (
-    id_usuario INT PRIMARY KEY,
-    nombre_usuario VARCHAR(50) NOT NULL,
-    contrasena VARCHAR(50) NOT NULL,
-    telefono VARCHAR(15),
-    direccion_envio VARCHAR(100),
-    correo VARCHAR(100),
-    nombre VARCHAR(50) NOT NULL,
-    apellidos VARCHAR(50) NOT NULL
-);
+CREATE TABLE `usuario` (
+  `id_usuario` INT AUTO_INCREMENT PRIMARY KEY,
+  `nombre_usuario` VARCHAR(50) UNIQUE NOT NULL,
+  `contrasena` VARCHAR(255) DEFAULT NULL,
+  `telefono` VARCHAR(15) DEFAULT NULL,
+  `direccion_envio` VARCHAR(100) DEFAULT NULL,
+  `correo` VARCHAR(100) DEFAULT NULL,
+  `nombre` VARCHAR(50) NOT NULL,
+  `apellidos` VARCHAR(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Cambios en los datos de la tabla `usuario`
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
 
 -- Tabla Productos
 CREATE TABLE Productos (
@@ -43,4 +50,4 @@ VALUES
     (8, 'Yogur natural', 40, 'Lácteos', 1.0),
     (9, 'Huevos (docena)', 30, 'Alimentos', 4.0),
     (10, 'Manzanas (kg)', 15, 'Frutas', 2.8);
-
+	
