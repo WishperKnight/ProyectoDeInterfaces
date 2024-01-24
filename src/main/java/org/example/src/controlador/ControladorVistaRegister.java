@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import org.example.src.modelo.UserAccount;
@@ -20,8 +21,8 @@ import org.example.src.vista.VistaInicio;
  * Contrlador de la vista encargada de registrar el usuario en la bbdd
  */
 public class ControladorVistaRegister {
-	static VistaInicio inicio;
-	static VistaRegister register;
+	 VistaInicio inicio;
+	VistaRegister register;
 
 	// Constructor donde pasamos la vista register
 	public ControladorVistaRegister(VistaRegister register) {
@@ -46,7 +47,7 @@ public class ControladorVistaRegister {
 		UserAccount userAccount;
 		UserAccountDAO userAccountDAO = new UserAccountDAO();
 		int cont = 0;
-		System.out.println("nombre: "+register.tfNombreR.getText());
+		System.out.println("nombre: " + register.tfNombreR.getText());
 		// Crear un objeto UserAccount con los datos del formulario de registro
 		userAccount = new UserAccount(register.tfNombreR.getText(), register.tfApellidos.getText(),
 				createUserName(register.tfNombreR.getText(), register.tfApellidos.getText()),
@@ -66,8 +67,9 @@ public class ControladorVistaRegister {
 						register.dispose();
 
 					} else {
-						Utiles.showErrorDialog(register, "Error: Usuario ya existente",
-								"El nombre de usuario ya se encuentra en uso");
+						 JOptionPane.showMessageDialog(null, "Error: Usuario ya existente",	"El nombre de usuario ya se encuentra en uso" , JOptionPane.ERROR_MESSAGE);
+
+						
 					}
 
 				} while (userAccountDAO.comprobarUser(userAccount.getName()) != true);
@@ -79,6 +81,8 @@ public class ControladorVistaRegister {
 		} else if (validateFields() == true) {
 			Utiles.showErrorDialog(register, "Contraseña no validia",
 					"La contraseña debe contern 8 caracteres entre los cuales debe incluir, unamayuscula, una minuscula, un numero y un carater especial");
+			 JOptionPane.showMessageDialog(null, "Error: Contraseña no validia",	"La contraseña debe contern 8 caracteres entre los cuales debe incluir, una mayuscula, una minuscula, un numero y un carater especial" , JOptionPane.ERROR_MESSAGE);
+
 			System.err.println("constraseña no valida: no se han cumplido los requisitos");
 		} else {
 			System.err.println("campos esenciales vacios: no se han cumplido los requisitos");
@@ -167,7 +171,7 @@ public class ControladorVistaRegister {
 		if (nombre.isEmpty()) {
 
 			System.err.println("Error, debe insertar un nombre");
-			Utiles.showErrorDialog(register, "Error", "Se debe de insertar un nombre");
+			 JOptionPane.showMessageDialog(null, "Error","Se debe de insertar un nombre" , JOptionPane.ERROR_MESSAGE);
 
 		} else {
 
@@ -187,7 +191,7 @@ public class ControladorVistaRegister {
 				if (nombre.length() < 3 || primerApellido.length() < 3 || segundoApellido.length() < 3) {
 
 					System.err.println("Error, nombre y/o apellidos demasiado" + " cortos");
-					Utiles.showErrorDialog(register, "Error", "Nombres y/o apellidos demasiado cortos");
+					 JOptionPane.showMessageDialog(null, "Error","Nombres y/o apellidos demasiado cortos", JOptionPane.ERROR_MESSAGE);
 
 				} else {
 
@@ -196,13 +200,12 @@ public class ControladorVistaRegister {
 					userName = nombre.substring(0, 3).concat(primerApellido.substring(0, 3))
 							.concat(segundoApellido.substring(0, 3)).toLowerCase().trim();
 					System.out.println(userName);
-					Utiles.showErrorDialog(register, "Nombre de usuario", "Su nombre de usuario es: " + userName);
-
+					 JOptionPane.showMessageDialog(null, "Nombre de usuario","Su nombre de usuario es: " + userName, JOptionPane.ERROR_MESSAGE);
 				}
 
 			} else {
 				System.err.print("Error, debe introducir dos apellidos");
-				Utiles.showErrorDialog(register, "Error", "Se debe de introducir dos apellidos");
+				 JOptionPane.showMessageDialog(null, "Error","debe introducir dos apellidos " , JOptionPane.ERROR_MESSAGE);
 
 			}
 
@@ -236,7 +239,8 @@ public class ControladorVistaRegister {
 	 */
 	private boolean campoVacio(String campo) {
 		if (campo.isEmpty()) {
-			Utiles.showErrorDialog(register, "Campos esenciales vacios", "Por favor rellene los campos marcados con *");
+			 JOptionPane.showMessageDialog(null, "Error: Campos esenciales vacios","Por favor rellene los campos marcados con * ", JOptionPane.ERROR_MESSAGE);
+
 			System.err.println("El campo debe estar completo");
 			return true;
 		}

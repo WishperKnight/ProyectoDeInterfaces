@@ -12,7 +12,9 @@ import org.example.src.vista.VistaInicio;
 import org.example.src.vista.VistaLogin;
 import org.example.src.modelo.UserAccountDAO;
 import org.example.src.utiles.Utiles;
-
+/**
+ * Controlador para gestionar los eventos del login
+ */
 public class ControladorLogin {
 
 	VistaLogin login;

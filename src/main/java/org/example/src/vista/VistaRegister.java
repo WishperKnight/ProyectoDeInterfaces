@@ -28,10 +28,12 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+/**
+ * Interfaz grafica para registrara un usuario en bbdd
+ */
 public class VistaRegister extends JFrame {
 
-	private JPanel contentPane;
+	public JPanel contentPane;
 	public JTextField tfNombreR;
 	public JTextField tfApellidos;
 	public JTextField tfCorreo;
@@ -39,7 +41,7 @@ public class VistaRegister extends JFrame {
 	public JTextField tfContrasenia;
 	public JTextField tfNumeroTelefono;
 	public JTextField tfDireccionEnvio;
-	private ControladorVistaRegister controlador = new ControladorVistaRegister(this);
+	public ControladorVistaRegister controlador = new ControladorVistaRegister(this);
 
 	/**
 	 * Create the frame.
