@@ -1,5 +1,9 @@
 package org.example.src.modelo;
 
+/**
+ * Modelo que usaremos para guardar los parametros de los datos de usuario para
+ * posteriormente introducirlos en la bbdd
+ */
 public class UserAccount {
 	// Declaramos las variables del modelo
 	String name, surname, username, password, adress, phoneNumber, email;

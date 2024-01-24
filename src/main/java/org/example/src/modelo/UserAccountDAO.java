@@ -9,6 +9,9 @@ import org.example.src.conector.Conection;
 import org.example.src.utiles.Utiles;
 import org.example.src.vista.VistaRegister;
 
+/**
+ * Clase que contiene los metodos necesarios para manejar al usuario en la bbdd
+ */
 public class UserAccountDAO {
 	private VistaRegister register = new VistaRegister();
 

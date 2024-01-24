@@ -21,7 +21,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * La clase Vestibulo representa la interfaz gr�fica principal de la aplicaci�n.
+ * La clase Vestibulo representa la interfaz grafica principal de la aplicacion.
  */
 public class Vestibulo extends JFrame {
 
@@ -29,7 +29,7 @@ public class Vestibulo extends JFrame {
     private JPanel contentPane;
 
     /**
-     * Constructor de la clase que crea el frame del Vest�bulo.
+     * Constructor de la clase que crea el frame del Vestibulo.
      */
     public Vestibulo() {
         setResizable(false);
@@ -98,7 +98,7 @@ public class Vestibulo extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        // Secci�n para mostrar productos
+        // Seccion para mostrar productos
         JLabel lblNewLabel_1 = new JLabel("");
         lblNewLabel_1.setIcon(new ImageIcon("C:\\Ruta\\A\\Tus\\Im�genes\\Aqu�\\productos.png"));
         lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 33));

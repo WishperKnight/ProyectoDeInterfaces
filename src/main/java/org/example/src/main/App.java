@@ -7,7 +7,9 @@ import org.example.src.controlador.ControladorLogin;
 import org.example.src.controlador.ControladorVistaRegister;
 import org.example.src.vista.VistaInicio;
 
-
+/**
+ * Clase desde donde se lanza nuestra app 
+ */
 public class App {
 
 	public static void main(String[] args) {
@@ -28,7 +30,7 @@ public class App {
 						}
 					}
 				});
-		ControladorVistaRegister cl = new ControladorVistaRegister(null);
+		
 		
 		
 

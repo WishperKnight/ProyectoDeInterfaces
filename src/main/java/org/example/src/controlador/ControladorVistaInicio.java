@@ -1,7 +1,7 @@
 package org.example.src.controlador;
 
 import org.example.src.vista.VistaRegister;
-
+import org.example.src.vista.Vestibulo;
 import org.example.src.vista.VistaInicio;
 import org.example.src.vista.VistaLogin;
 /**
@@ -23,7 +23,9 @@ public class ControladorVistaInicio {
 	}
 	
 
-	//Metodo para dirigirnos a la ventana de inicio de sesion
+	/**
+	 * metodo que nos dirige a la ventana de inicio de sesion
+	 */
 	public void iniciarSesion(){
 		
 		//Aqui lo que hacemos es mostrar la ventana login y cerrar la ventana actual en la que estamos 
@@ -34,7 +36,11 @@ public class ControladorVistaInicio {
 		
 	}
 	
-	//Metodo para dirigirnos a la ventana de creacion de cuenta
+
+	
+	/**
+	 * metodo que nos dirige a la ventana de creacion de cuenta
+	 */
 	public void crearCuenta(){
 		
 		//Aqui lo que hacemos es mostrar la ventana register y cerrar la ventana actual en la que estamos 
@@ -44,6 +50,17 @@ public class ControladorVistaInicio {
 		inicio.dispose();
 		
 	}
-	
+	/**
+	 * metodo que nos dirige a la ventana de vestibulo de la App
+	 */
+	public void goToLandingPage(){
+		
+		//Aqui lo que hacemos es mostrar la ventana vestibulo y cerrar la ventana actual en la que estamos 
+		Vestibulo landing = new Vestibulo();
+		landing.setLocationRelativeTo(null);
+		landing.setVisible(true);
+		inicio.dispose();
+		
+	}
 	
 }

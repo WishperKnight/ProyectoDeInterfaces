@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * La clase Utiles proporciona m�todos �tiles relacionados con la interfaz de usuario y colores.
+ * La clase Utiles proporciona metodos utiles relacionados con la interfaz de usuario y colores.
  */
 public class Utiles {
 
@@ -45,21 +45,21 @@ public class Utiles {
     }
 
     /**
-     * A�ade un Tooltip a un componente espec�fico.
+     * Anniaade un Tooltip a un componente especifico.
      *
-     * @param componente El componente al que se a�adir� el Tooltip.
+     * @param componente El componente al que se anniadirs el Tooltip.
      * @param mensaje    El mensaje del Tooltip.
      */
     public static void toolTip(JComponent componente, String mensaje) {
-        // A�adir el Tooltip al componente
+        // Aniadir el Tooltip al componente
         componente.setToolTipText("<html><p>" + mensaje + "</p></html>");
     }
 
     /**
-     * Muestra un cuadro de di�logo de error con un mensaje y un t�tulo espec�ficos.
+     * Muestra un cuadro de dialogo de error con un mensaje y un titulo especificos.
      *
-     * @param parentFrame El JFrame padre al que estar� asociado el cuadro de di�logo.
-     * @param titulo      El t�tulo del cuadro de di�logo.
+     * @param parentFrame El JFrame padre al que estara asociado el cuadro de dialogo.
+     * @param titulo      El titulo del cuadro de dialogo.
      * @param mensaje     El mensaje de error a mostrar.
      */
     public static void showErrorDialog(JFrame parentFrame, String titulo, String mensaje) {
