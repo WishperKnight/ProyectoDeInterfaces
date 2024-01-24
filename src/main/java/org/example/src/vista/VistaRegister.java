@@ -219,7 +219,7 @@ public class VistaRegister extends JFrame {
 		//jlabel Sign up
 		JLabel lbTitulo = new JLabel("Sign up");
 		lbTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
-		lbTitulo.setBounds(258, 35, 85, 35);
+		lbTitulo.setBounds(235, 35, 96, 35);
 		lbTitulo.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		contentPane.add(lbTitulo);
 		

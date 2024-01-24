@@ -6,17 +6,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.example.src.conector.Conection;
+import org.example.src.utiles.Utiles;
+import org.example.src.vista.VistaRegister;
+
 public class UserAccountDAO {
+	private VistaRegister register = new VistaRegister();
 
 	/**
-	 * Inserta un Usuario en la bbdd según unos parametros dados en el login
+	 * Inserta un Usuario en la bbdd según unos parametros dados en el registro
 	 * 
-	 * @param animal
+	 * @param Useraccount
 	 * @throws SQLException
 	 */
 	public void insertarUser(UserAccount userAccount) throws SQLException {
 		Connection con = Conection.connection();
-		String query = "INSERT INTO useraccount (name, surname, username, password, email, phone, adress) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+		String query = "INSERT INTO Usuario (id_usuario, nombre, apellidos, nombre_usuario, contrasena, correo, telefono, direccion_envio) VALUES (null, ?, ?, ?, ?, ?, ?, ?)";
 		try (PreparedStatement statement = con.prepareStatement(query)) {
 			statement.setString(1, userAccount.getName());
 			statement.setString(2, userAccount.getSurname());
@@ -27,6 +32,7 @@ public class UserAccountDAO {
 			statement.setString(7, userAccount.getAdress());
 			statement.executeUpdate();
 		}
+
 	}
 
 	/**
@@ -34,13 +40,13 @@ public class UserAccountDAO {
 	 * 
 	 * @param username nombre de cuenta prorporcionado por el usuario
 	 * @param password contrasena prorporcionada por el usuario
-	 * @return
+	 * @return T si se ha realizado F si ha fallado
 	 */
 	public boolean validarUser(String username, String password) {
 		Connection con = Conection.connection();
 		boolean valido = false;
 
-		String query = "SELECT * FROM USERACCOUNT WHERE USERNAME=? AND PASSWORD=?;";
+		String query = "SELECT * FROM Usuario WHERE nombre_usuario=? AND contrasena=?;";
 
 		try (PreparedStatement statement = con.prepareStatement(query)) {
 			statement.setString(1, username);
@@ -58,4 +64,28 @@ public class UserAccountDAO {
 		return valido;
 	}
 
+	/**
+	 * Metodo que comprueba si existe un ya un usuario con ese nombre en la bbdd
+	 * 
+	 * @param UserName
+	 * @return T si ya existe F si no existe
+	 */
+	public boolean comprobarUser(String UserName) {
+		boolean exist = false;
+		Connection con = Conection.connection();
+		String query = "SELECT * FROM Usuario WHERE nombre_usuario=?;";
+		try (PreparedStatement statement = con.prepareStatement(query)) {
+			statement.setString(1, userName);
+			try (ResultSet resultSet = statement.executeQuery()) {
+				exist = resultSet.next(); // Establecer valido como true si se encontró alguna fila
+			} catch (SQLException e) {
+				e.printStackTrace(); // Manejar la excepción adecuadamente
+			} finally {
+				// Cerrar la conexión aquí si es necesario
+				con.close();
+
+			}
+			return exist;
+		}
+	}
 }

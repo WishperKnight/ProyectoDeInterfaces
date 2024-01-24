@@ -41,12 +41,15 @@ import javax.swing.JMenu;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
+/**
+ * Interfaz grafica para que el usuario introduzca sus credenciales de inicio de sesion
+ */
 public class VistaLogin extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField tfUsuario;
-	private JPasswordField pfContrasenia;
-	private JLabel lbError;
+	public JTextField tfUsuario;
+	public JPasswordField pfContrasenia;
+	public JLabel lbError;
 	private ControladorLogin controlador = new ControladorLogin(this);
 	private final Action action = new SwingAction();
 
@@ -100,7 +103,7 @@ public class VistaLogin extends JFrame {
 		JLabel lbTitulo = new JLabel("Sign in");
 		lbTitulo.setForeground(Utiles.convertirColorJava(Utiles.COLOR_VERDE));
 		lbTitulo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 25));
-		lbTitulo.setBounds(122, 22, 80, 40);
+		lbTitulo.setBounds(122, 22, 100, 40);
 		contentPane.add(lbTitulo);
 
 		// Boton iniciar sesion
@@ -205,7 +208,7 @@ public class VistaLogin extends JFrame {
 
 		// MenuBar para el menu general
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 323, 22);
+		menuBar.setBounds(0, 0, 342, 22);
 		menuBar.setBackground(Utiles.convertirColorJava(Utiles.COLOR_AZUL));
 		contentPane.add(menuBar);
 
@@ -290,81 +293,16 @@ public class VistaLogin extends JFrame {
 	}
 
 	/**
-	 * @return the contentPane
+	 * metodo para iniciar sesion con los datos introducidos por el usuario
 	 */
-	public JPanel getContentPane() {
-		return contentPane;
+	public void iniciarSesion(String contrasena, String user) {
+		controlador.iniciarSesion();
 	}
 
 	/**
-	 * @param contentPane the contentPane to set
+	 * metodo para volver atras
 	 */
-	public void setContentPane(JPanel contentPane) {
-		this.contentPane = contentPane;
-	}
 
-	/**
-	 * @return the tfUsuario
-	 */
-	public JTextField getTfUsuario() {
-		return tfUsuario;
-	}
-
-	/**
-	 * @param tfUsuario the tfUsuario to set
-	 */
-	public void setTfUsuario(JTextField tfUsuario) {
-		this.tfUsuario = tfUsuario;
-	}
-
-	/**
-	 * @return the pfContrasenia
-	 */
-	public JPasswordField getPfContrasenia() {
-		return pfContrasenia;
-	}
-
-	/**
-	 * @param pfContrasenia the pfContrasenia to set
-	 */
-	public void setPfContrasenia(JPasswordField pfContrasenia) {
-		this.pfContrasenia = pfContrasenia;
-	}
-
-	/**
-	 * @return the lbError
-	 */
-	public JLabel getLbError() {
-		return lbError;
-	}
-
-	/**
-	 * @param lbError the lbError to set
-	 */
-	public void setLbError(JLabel lbError) {
-		this.lbError = lbError;
-	}
-
-	/**
-	 * @return the controlador
-	 */
-	public ControladorLogin getControlador() {
-		return controlador;
-	}
-
-	/**
-	 * @param controlador the controlador to set
-	 */
-	public void setControlador(ControladorLogin controlador) {
-		this.controlador = controlador;
-	}
-
-	// Metodo para iniciar sesion
-	public void iniciarSesion() {
-
-	}
-
-	// Metodo para volver hacia atras
 	public void volverAtras() {
 
 		// Llamamos al metodo volverAtras del controlador
@@ -372,7 +310,9 @@ public class VistaLogin extends JFrame {
 
 	}
 
-	// Metodo para reproducir audio de ayuda
+	/**
+	 * Metodo para reproducir audio de ayuda
+	 */
 	public void reproducirAudio() {
 
 		// Llamamos al metodo reproducirAudio del controlador
@@ -385,6 +325,7 @@ public class VistaLogin extends JFrame {
 			putValue(NAME, "SwingAction");
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
+
 		public void actionPerformed(ActionEvent e) {
 		}
 	}

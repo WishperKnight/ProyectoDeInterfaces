@@ -17,23 +17,28 @@ public class ControladorLogin {
 
 	VistaLogin login;
 
-	// Constructor donde pasamos la vista Login
+	/**
+	 * Cosntructor donse pasamos por parametros la vista con la que tranajamos 
+	 * @param login la interfaz grafica del login
+	 */
 	public ControladorLogin(VistaLogin login) {
 
 		this.login = login;
 
 	}
 
-	// Metodo para iniciar sesion
+	/**
+	 * Metodo para iniciar sesion
+	 */
 	public void iniciarSesion() {
 		Vestibulo vest = new Vestibulo();
 
 		UserAccountDAO accountDAO = new UserAccountDAO();
-		if (accountDAO.validarUser(login.getTfUsuario().getText().toString().toLowerCase(),
-				login.getPfContrasenia().toString())) {
+		if (accountDAO.validarUser(login.tfUsuario.getText().toString().toLowerCase(),
+				login.pfContrasenia.toString())) {
 			vest.setVisible(true);
 		}else {
-			login.getLbError().setText("Credenciales erroneas");
+			login.lbError.setText("Credenciales erroneas");
 			Utiles.showErrorDialog(login, "Error en las credenciales", "contraseña o usuario incorrectos");
 		}
 		
@@ -41,7 +46,9 @@ public class ControladorLogin {
 
 	}
 
-	// Metodo para volver hacia atras
+	/**
+	 * Metodo para volver a la pestaña anterior
+	 */
 	public void volverAtras() {
 
 		// Aqui lo que hacemos es mostrar la ventana anterior a la de login (osea,
@@ -54,7 +61,9 @@ public class ControladorLogin {
 
 	}
 
-	// Metodo para reproducir audio de ayuda
+	/**
+	 * Metodo para reproducir audio de ayuda
+	 */
 	public void reproducirAudio() {
 
 		// Almacenamos el archivo de audio en una variable File

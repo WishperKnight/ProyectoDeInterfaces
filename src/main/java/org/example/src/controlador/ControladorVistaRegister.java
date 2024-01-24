@@ -17,7 +17,7 @@ import org.example.src.utiles.*;
 import org.example.src.vista.VistaInicio;
 
 /**
- * 
+ * Contrlador de la vista encargada de registrar el usuario en la bbdd
  */
 public class ControladorVistaRegister {
 	static VistaInicio inicio;
@@ -45,7 +45,7 @@ public class ControladorVistaRegister {
 		// Crear instancias necesarias
 		UserAccount userAccount;
 		UserAccountDAO userAccountDAO = new UserAccountDAO();
-
+		int cont = 0;
 		// Crear un objeto UserAccount con los datos del formulario de registro
 		userAccount = new UserAccount(register.getTfNombre().getText().toString(),
 				register.getTfApellidos().getText().toString(),
@@ -57,14 +57,25 @@ public class ControladorVistaRegister {
 		// Validar los campos y verificar la seguridad de la contraseña
 		if (validateFields() == true && contrasenaSegura(register.getTfContrasenia().getText().toString()) == true) {
 			try {
-				// Intentar insertar el usuario en la base de datos
-				userAccountDAO.insertarUser(userAccount);
-				inicio.setVisible(true);
-				inicio.setLocationRelativeTo(null);
-				register.dispose();
+				do {
+					cont++;
+
+					if (userAccountDAO.comprobarUser(userAccount.getName()) != true) {
+						// Intentar insertar el usuario en la base de datos
+						userAccountDAO.insertarUser(userAccount);
+						inicio.setVisible(true);
+						inicio.setLocationRelativeTo(null);
+						register.dispose();
+
+					} else {
+						Utiles.showErrorDialog(register, "Error: Usuario ya existente",
+								"El nombre de usuario ya se encuentra en uso");
+					}
+
+				} while (userAccountDAO.comprobarUser(userAccount.getName()) != true);
 
 			} catch (SQLException e) {
-				// Manejar la excepción (puedes personalizar este bloque según tus necesidades)
+				// controlamos los errores que puedan surgir
 				e.printStackTrace();
 			}
 		} else if (validateFields() == true) {
@@ -134,8 +145,8 @@ public class ControladorVistaRegister {
 	 */
 
 	public void setUsername() {
-		Utiles.showErrorDialog(register, "Nombre de Usuario: ",createUserName(register.getTfNombre().getText().toString(),
-				register.getTfApellidos().getText().toString()) );
+		Utiles.showErrorDialog(register, "Nombre de Usuario: ", createUserName(
+				register.getTfNombre().getText().toString(), register.getTfApellidos().getText().toString()));
 		register.getTfUsuario().setText(createUserName(register.getTfNombre().getText().toString(),
 				register.getTfApellidos().getText().toString()));
 
@@ -189,6 +200,7 @@ public class ControladorVistaRegister {
 					userName = nombre.substring(0, 3).concat(primerApellido.substring(0, 3))
 							.concat(segundoApellido.substring(0, 3)).toLowerCase().trim();
 					System.out.println(userName);
+					Utiles.showErrorDialog(register, "Nombre de usuario", "Su nombre de usuario es: " + userName);
 
 				}
 
@@ -229,14 +241,16 @@ public class ControladorVistaRegister {
 	 */
 	private boolean campoVacio(JTextField campo, String nombre) {
 		if (campo.getText().isEmpty()) {
-			Utiles.showErrorDialog(register, "Campos esenciales vacios", "Por favor rellene los campos marcados co *");
+			Utiles.showErrorDialog(register, "Campos esenciales vacios", "Por favor rellene los campos marcados con *");
 			System.err.println("El campo " + nombre + " debe estar completo");
 			return true;
 		}
 		return false;
 	}
 
-	// Metodo para reproducir audio de ayuda
+	/**
+	 * Metodo para reproducir un audio de ayuda
+	 */
 	public void reproducirAudio() {
 
 		// Almacenamos el archivo de audio en una variable File

@@ -4,13 +4,18 @@ import org.example.src.vista.VistaRegister;
 
 import org.example.src.vista.VistaInicio;
 import org.example.src.vista.VistaLogin;
-
+/**
+ * Vista donde tendremos las opciones principales de la aplicacion
+ */
 public class ControladorVistaInicio {
 
 	
 	VistaInicio inicio;
 	
-	//Constructor donde pasamos la vista inicio
+	/**
+	 * Contructor de la clase donde le pasamos su vista asociada
+	 * @param inicio vista asociada
+	 */ 
 	public ControladorVistaInicio(VistaInicio inicio) {
 		
 		this.inicio=inicio;
