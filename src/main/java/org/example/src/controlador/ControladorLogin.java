@@ -12,9 +12,7 @@ import org.example.src.vista.VistaInicio;
 import org.example.src.vista.VistaLogin;
 import org.example.src.modelo.UserAccountDAO;
 import org.example.src.utiles.Utiles;
-/**
- * Controlador para gestionar los eventos del login
- */
+
 public class ControladorLogin {
 
 	VistaLogin login;
@@ -33,20 +31,25 @@ public class ControladorLogin {
 	 * Metodo para iniciar sesion
 	 */
 	public void iniciarSesion() {
-		Vestibulo vest = new Vestibulo();
+	    Vestibulo vest = new Vestibulo();
 
-		UserAccountDAO accountDAO = new UserAccountDAO();
-		if (accountDAO.validarUser(login.tfUsuario.getText().toString().toLowerCase(),
-				login.pfContrasenia.toString())) {
-			vest.setVisible(true);
-		}else {
-			login.lbError.setText("Credenciales erroneas");
-			Utiles.showErrorDialog(login, "Error en las credenciales", "contraseña o usuario incorrectos");
-		}
-		
-			
+	    UserAccountDAO accountDAO = new UserAccountDAO();
 
+	    // Obtener texto de los campos de texto y contraseña
+	    String usuario = login.tfUsuario.getText().toLowerCase().trim();
+	    char[] contraseniaCharArray = login.pfContrasenia.getPassword();
+	    String contrasenia = new String(contraseniaCharArray).trim();
+
+	    System.out.println(usuario + " " + contrasenia);
+
+	    if (accountDAO.validarUser(usuario, contrasenia)) {
+	        vest.setVisible(true);
+	    } else {
+	        login.lbError.setText("Credenciales incorrectas");
+	        Utiles.showErrorDialog(login, "Error en las credenciales", "Contraseña o usuario incorrectos");
+	    }
 	}
+
 
 	/**
 	 * Metodo para volver a la pestaña anterior

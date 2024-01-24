@@ -22,21 +22,28 @@ public class UserAccountDAO {
      * @throws SQLException
      */
     public void insertarUser(UserAccount userAccount) throws SQLException {
-        Connection con = Conection.connection();
+        // Obtener la conexión a la base de datos
+        try (Connection con = Conection.connection()) {
+            // Hasheamos la contraseña antes de almacenarla en la base de datos
+            String hashedPassword = hashPassword(userAccount.getPassword());
 
-        // Hasheamos la contraseña antes de almacenarla en la base de datos
-        String hashedPassword = hashPassword(userAccount.getPassword());
-
-        String query = "INSERT INTO Usuario (id_usuario, nombre, apellidos, nombre_usuario, contrasena, correo, telefono, direccion_envio) VALUES (null, ?, ?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement statement = con.prepareStatement(query)) {
-            statement.setString(1, userAccount.getName());
-            statement.setString(2, userAccount.getSurname());
-            statement.setString(3, userAccount.getUsername());
-            statement.setString(4, hashedPassword);
-            statement.setString(5, userAccount.getEmail());
-            statement.setString(6, userAccount.getPhoneNumber());
-            statement.setString(7, userAccount.getAdress());
-            statement.executeUpdate();
+            // Definir la consulta SQL parametrizada
+            String query = "INSERT INTO Usuario (nombre, apellidos, nombre_usuario, contrasena, correo, telefono, direccion_envio) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            
+            // Preparar la declaración SQL para evitar inyección de SQL
+            try (PreparedStatement statement = con.prepareStatement(query)) {
+                // Asignar valores a los parámetros de la consulta
+                statement.setString(1, userAccount.getName());
+                statement.setString(2, userAccount.getSurname());
+                statement.setString(3, userAccount.getUsername());
+                statement.setString(4, hashedPassword);
+                statement.setString(5, userAccount.getEmail());
+                statement.setString(6, userAccount.getPhoneNumber());
+                statement.setString(7, userAccount.getAdress());
+                
+                // Ejecutar la inserción
+                statement.executeUpdate();
+            }
         }
     }
 
