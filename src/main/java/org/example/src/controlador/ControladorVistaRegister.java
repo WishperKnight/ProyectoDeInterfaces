@@ -46,14 +46,12 @@ public class ControladorVistaRegister {
 		UserAccount userAccount;
 		UserAccountDAO userAccountDAO = new UserAccountDAO();
 		int cont = 0;
+		System.out.println("nombre: "+register.tfNombreR.getText());
 		// Crear un objeto UserAccount con los datos del formulario de registro
-		userAccount = new UserAccount(register.tfNombre.getText().toString(),
-				register.tfApellidos.getText().toString(),
-				createUserName(register.tfNombre.getText().toString(),
-						register.tfApellidos.getText().toString()),
-				register.tfContrasenia.getText().toString(), register.tfDireccionEnvio.getText().toString(),
-				register.tfNumeroTelefono.getText().toString(), register.tfCorreo.getText().toString());
-
+		userAccount = new UserAccount(register.tfNombreR.getText(), register.tfApellidos.getText(),
+				createUserName(register.tfNombreR.getText(), register.tfApellidos.getText()),
+				register.tfContrasenia.getText(), register.tfDireccionEnvio.getText(),
+				register.tfNumeroTelefono.getText(), register.tfCorreo.getText());
 		// Validar los campos y verificar la seguridad de la contraseña
 		if (validateFields() == true && contrasenaSegura(register.tfContrasenia.getText().toString()) == true) {
 			try {
@@ -80,7 +78,7 @@ public class ControladorVistaRegister {
 			}
 		} else if (validateFields() == true) {
 			Utiles.showErrorDialog(register, "Contraseña no validia",
-					"La contraseña debe contern 8 caracteres entre los cuales debe incluir, una mayuscula, una minuscula, un numero y un carater especial");
+					"La contraseña debe contern 8 caracteres entre los cuales debe incluir, unamayuscula, una minuscula, un numero y un carater especial");
 			System.err.println("constraseña no valida: no se han cumplido los requisitos");
 		} else {
 			System.err.println("campos esenciales vacios: no se han cumplido los requisitos");
@@ -145,10 +143,9 @@ public class ControladorVistaRegister {
 	 */
 
 	public void setUsername() {
-		Utiles.showErrorDialog(register, "Nombre de Usuario: ", createUserName(
-				register.tfNombre.getText().toString(), register.tfApellidos.getText().toString()));
-		register.tfUsuario.setText(createUserName(register.tfNombre.getText().toString(),
-				register.tfApellidos.getText().toString()));
+		Utiles.showErrorDialog(register, "Nombre de Usuario: ",
+				createUserName(register.tfNombreR.getText(), register.tfApellidos.getText()));
+		register.tfUsuario.setText(createUserName(register.tfNombreR.getText(), register.tfApellidos.getText()));
 
 	}
 
@@ -164,9 +161,8 @@ public class ControladorVistaRegister {
 	private static String createUserName(String nombre, String apellidos) {
 
 		String userName = null;
-
-		String primerApellido = null;
 		String segundoApellido = null;
+		String primerApellido = null;
 
 		if (nombre.isEmpty()) {
 
@@ -222,9 +218,8 @@ public class ControladorVistaRegister {
 	 * @return true si todos los campos están completos, false de lo contrario.
 	 */
 	private boolean validateFields() {
-		if (campoVacio(register.tfNombre.getText()) || campoVacio(register.tfApellidos.getText())
-				|| campoVacio(register.tfContrasenia.getText())
-				|| campoVacio(register.tfDireccionEnvio.getText())
+		if (campoVacio(register.tfNombreR.getText()) || campoVacio(register.tfApellidos.getText())
+				|| campoVacio(register.tfContrasenia.getText()) || campoVacio(register.tfDireccionEnvio.getText())
 				|| campoVacio(register.tfCorreo.getText())) {
 			return false;
 		}

@@ -32,7 +32,7 @@ import java.awt.event.MouseEvent;
 public class VistaRegister extends JFrame {
 
 	private JPanel contentPane;
-	public JTextField tfNombre;
+	public JTextField tfNombreR;
 	public JTextField tfApellidos;
 	public JTextField tfCorreo;
 	public JTextField tfUsuario;
@@ -183,10 +183,10 @@ public class VistaRegister extends JFrame {
 		contentPane.add(lbUsuario);
 
 		// textfield para insertar el nombre
-		tfNombre = new JTextField();
-		tfNombre.setBounds(96, 81, 134, 20);
-		contentPane.add(tfNombre);
-		tfNombre.setColumns(10);
+		tfNombreR = new JTextField();
+		tfNombreR.setBounds(96, 81, 134, 20);
+		contentPane.add(tfNombreR);
+		tfNombreR.setColumns(10);
 
 		// textfield para insertar los apellidos
 		tfApellidos = new JTextField();
@@ -365,7 +365,7 @@ public class VistaRegister extends JFrame {
 		// Aniado ToolTips mediante el metodo de la clase Utiles
 		Utiles.toolTip(tfUsuario, "Inserta tu nombre de usuario");
 		Utiles.toolTip(tfContrasenia, "Inserta una contrasenia para esta nueva cuenta");
-		Utiles.toolTip(tfNombre, "Inserta tu nombre");
+		Utiles.toolTip(tfNombreR, "Inserta tu nombre");
 		Utiles.toolTip(tfNumeroTelefono, "Inserta tu nnumero de telefono");
 		Utiles.toolTip(tfApellidos, "Inserta tus apellidos");
 		Utiles.toolTip(tfDireccionEnvio, "Inserta una direccion a la cual entregaremos los productos");
