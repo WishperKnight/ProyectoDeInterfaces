@@ -15,31 +15,13 @@ import javax.swing.JPanel;
 public class Utiles {
 
     // Colores en formato hexadecimal
-	/**
-	 * Color azul en exagesimal
-	 */
     public static String COLOR_AZUL = "339999";
-    /**
-	 * Color COLOR_CLARO en exagesimal
-	 */
     public static String COLOR_CLARO = "D6EAE2";
-    /**
-	 * Color COLOR_VERDE en exagesimal
-	 */
     public static String COLOR_VERDE = "3F8671";
-    /**
-	 * Color COLOR_ROJO en exagesimal
-	 */
     public static String COLOR_ROJO = "FF0000";
 
     // COLORES PARA LA CONSOLA
-    /**
-     * Color Rojo en formato ansi
-     */
     public static final String ANSI_RED = "\u001B[31m";
-    /**
-     * Color Verde ne formato ansi
-     */
     public static final String ANSI_GREEN = "\u001B[32m";
 
     /**

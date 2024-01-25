@@ -37,8 +37,6 @@ import java.awt.event.MouseEvent;
 public class VistaInicio extends JFrame {
 
 	private JPanel contentPane;
-	public VistaLogin vistaLogin;
-	public VistaRegister vistaRegister;
 	private ControladorVistaInicio controlador = new ControladorVistaInicio(this);
 
 	/**

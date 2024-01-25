@@ -29,9 +29,9 @@ public class ControladorVistaInicio {
 	public void iniciarSesion(){
 		
 		//Aqui lo que hacemos es mostrar la ventana login y cerrar la ventana actual en la que estamos 
-		inicio.vistaLogin = new VistaLogin();
-		inicio.vistaLogin.setVisible(true);
-		inicio.vistaLogin.setLocationRelativeTo(null);
+		VistaLogin login = new VistaLogin();
+		login.setLocationRelativeTo(null);
+		login.setVisible(true);
 		inicio.dispose();
 		
 	}
@@ -44,9 +44,9 @@ public class ControladorVistaInicio {
 	public void crearCuenta(){
 		
 		//Aqui lo que hacemos es mostrar la ventana register y cerrar la ventana actual en la que estamos 
-		inicio.vistaRegister = new VistaRegister();
-		inicio.vistaRegister.setVisible(true);
-		inicio.vistaRegister.setLocationRelativeTo(null);
+		VistaRegister register = new VistaRegister();
+		register.setLocationRelativeTo(null);
+		register.setVisible(true);
 		inicio.dispose();
 		
 	}

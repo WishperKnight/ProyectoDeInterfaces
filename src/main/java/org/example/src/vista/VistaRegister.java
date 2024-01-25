@@ -28,9 +28,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-/**
- * Interfaz grafica para registrara un usuario en bbdd
- */
+
 public class VistaRegister extends JFrame {
 
 	public JPanel contentPane;
@@ -187,8 +185,8 @@ public class VistaRegister extends JFrame {
 		// textfield para insertar el nombre
 		tfNombreR = new JTextField();
 		tfNombreR.setBounds(96, 81, 134, 20);
-		contentPane.add(tfNombreR);
 		tfNombreR.setColumns(10);
+		contentPane.add(tfNombreR);
 
 		// textfield para insertar los apellidos
 		tfApellidos = new JTextField();

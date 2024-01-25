@@ -19,9 +19,9 @@ public abstract class Conection {
 		Connection connect = null;
 		try {
 			// Configuraci�n de la conexi�n con la base de datos MySQL
-			String url = "jdbc:mysql://localhost/Mercadona";
+			String url = "jdbc:mysql://localhost:3307/Mercadona";
 			String user = "root";
-			String pass = "3arend1l#1";
+			String pass = "root";
 
 			// Establecer la conexi�n
 			connect = DriverManager.getConnection(url, user, pass);
